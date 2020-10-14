@@ -1,0 +1,14 @@
+#main-form {
+    border: solid 2px #e9521d;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    border: solid 2px #e9521d;
+    margin: 3%;
+}
+
+#title-label {
+    margin-right: 20px;
+}
