@@ -3,6 +3,7 @@ Vue.component("main-form", {
     return {
       step: 1,
       mediHistoryData: null,
+      mediInformationData: null
     };
   },
   computed: {
@@ -24,6 +25,10 @@ Vue.component("main-form", {
 
   template: /*html*/ `
     <v-card  id="main-form" height="100%" class="mx-auto" elevation="2"  outlined  max-width="1100">
+
+      <div class="back-logo">
+        <img class="img-bh" src="assets/img/bh.png" alt="image/png">
+      </div>
   
       <center>  
         <div id="logo">
@@ -43,24 +48,11 @@ Vue.component("main-form", {
       <v-window v-model="step">
   
         <v-window-item :value="1">
-          <medical-histoy @medicalHistory="mediHistoryData = $event"></medical-histoy>
+          <medical-histoy @medicalHistory="mediHistoryData= $event"></medical-histoy>
         </v-window-item>
   
         <v-window-item :value="2">
-          <v-card-text>
-            <v-text-field
-              outlined
-              label="Password"
-              type="password"
-            ></v-text-field>
-            <v-text-field
-              label="Confirm Password"
-              type="password"
-            ></v-text-field>
-            <span class="caption grey--text text--darken-1">
-              Please enter a password for your account
-            </span>
-          </v-card-text>
+          <medical-information @medicalInformation="mediInformationData= $event"></medical-information>
         </v-window-item>
   
         <v-window-item :value="3">

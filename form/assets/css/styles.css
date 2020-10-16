@@ -7,6 +7,7 @@
 #logo {
     border: solid 2px #e9521d;
     margin: 2%;
+    z-index: 3;
 }
 
 #title-label {
@@ -16,9 +17,42 @@
 .radio-label-mh {
     position: relative;
     top: 10px;
-    margin: 0 40px -40px 20px;
+    margin: 0 40px -40px 20px !important;
 }
 
 .field {
-    margin-bottom: -40px !important;
+    margin-bottom: -25px !important;
+}
+
+.check-field {
+    margin-bottom: -12px !important;
+}
+
+.other {
+    margin-top: 10px !important;
+    margin-bottom: -30px;
+}
+
+.check-container {
+    border: solid 1px rgba(0,0,0,.38);
+    border-radius: 5px;
+    padding: 15px 0 0 10%;
+}
+
+.text-descript {
+    font-size: 14px;
+}
+
+.back-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.back-logo .img-bh {
+    width: 95%;
+    opacity: 0.03;
+    z-index: -1;
 }
