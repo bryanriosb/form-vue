@@ -3,7 +3,8 @@ Vue.component("main-form", {
     return {
       step: 1,
       mediHistoryData: null,
-      mediInformationData: null
+      mediInfoData: null,
+      rehabInfoData: null
     };
   },
   computed: {
@@ -52,22 +53,11 @@ Vue.component("main-form", {
         </v-window-item>
   
         <v-window-item :value="2">
-          <medical-information @medicalInformation="mediInformationData= $event"></medical-information>
+          <medical-information @medicalInformation="mediInfoData= $event"></medical-information>
         </v-window-item>
   
         <v-window-item :value="3">
-          <div class="pa-4 text-center">
-              <v-img
-                class="mb-4"
-                contain
-                height="128"
-                src="https://cdn.vuetifyjs.com/images/logos/v.svg"
-              ></v-img>
-              <h3 class="title font-weight-light mb-2">
-              Welcome to Vuetify
-              </h3>
-              <span class="caption grey--text">Thanks for signing up!</span>
-          </div>
+          <rehab-information @rehabInformation="rehabInfoData= $event"></rehab-information>
         </v-window-item>
         <v-window-item :value="4">
           <div class="pa-4 text-center">

@@ -2,6 +2,7 @@ Vue.component("medical-information", {
 
     data() {
       return {
+          
         fields: [
           { label: 'Heart Disease', type: 'checkbox', md: 3 , sm: 6, value: null },
           { label: 'Diabetes', type: 'checkbox', md: 3 , sm: 6, value: null },

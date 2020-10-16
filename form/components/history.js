@@ -2,6 +2,7 @@ Vue.component("medical-histoy", {
 
     data() {
       return {
+        
         fields: [
           { label: 'Name', type:'text', md: 4 , sm: 6, value: null },
           { label: 'Date', type: 'date', md: 3 , sm: 6, menu: false, value: moment().format("YYYY-MM-DD") },
@@ -140,8 +141,7 @@ Vue.component("medical-histoy", {
 
               <v-radio-group v-model="field.value" row >
 
-                <p class="radio-label-mh">{{field.label}}</p>
-                
+                <p class="radio-label-mh">{{ field.label }}</p>
                 <v-radio label="Yes"  value="Yes"></v-radio> 
                 <v-radio label="No" value="No" ></v-radio>
     
