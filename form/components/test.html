@@ -1,0 +1,63 @@
+<v-container>
+
+    <v-row no-gutters>
+
+      <v-col v-for="(field, index) in fields" :key="index" cols="12" md="3">
+
+        <v-card-text >
+
+          <v-text-field
+            outlined
+            :label="field.label"
+            v-model="field.value"
+          ></v-text-field>
+          
+        </v-card-text>
+
+
+      </v-col>
+    </v-row>
+    <v-btn depressed @click="show()" color="primary">
+      Primary
+    </v-btn>
+  </v-container>
+
+  <!-- <v-container>
+
+    <v-row no-gutters>
+
+      <v-col lg="4" md="4">
+
+        <v-card-text>
+
+          <v-text-field
+            outlined
+            :label="fields[0].label"
+            v-model="fields[0].value"
+          ></v-text-field>
+          
+        </v-card-text>
+
+      </v-col>
+
+      <v-col lg="4" md="4">
+
+        <v-card-text>
+
+          <v-text-field
+            outlined
+            :label="fields[0].label"
+            v-model="fields[0].value"
+          ></v-text-field>
+          
+        </v-card-text>
+
+      </v-col>
+      
+    </v-row>
+
+    <v-btn depressed @click="show()" color="primary">
+      Primary
+    </v-btn>
+
+  </v-container> -->
