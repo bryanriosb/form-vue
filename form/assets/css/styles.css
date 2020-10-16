@@ -16,5 +16,9 @@
 .radio-label-mh {
     position: relative;
     top: 10px;
-    margin: 0 40px 0 20px;
+    margin: 0 40px -40px 20px;
+}
+
+.field {
+    margin-bottom: -40px !important;
 }
