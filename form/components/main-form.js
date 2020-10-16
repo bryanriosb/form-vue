@@ -4,7 +4,9 @@ Vue.component("main-form", {
       step: 1,
       mediHistoryData: null,
       mediInfoData: null,
-      rehabInfoData: null
+      rehabInfoData: null,
+      rehabInfo2Data: null,
+      rehabInfo3Data: null,
     };
   },
   computed: {
@@ -17,6 +19,10 @@ Vue.component("main-form", {
         case 3:
           return "REHAB INFORMATION";
         case 4:
+          return "REHAB INFORMATION";
+        case 5:
+          return "REHAB INFORMATION";
+        case 6:
           return "OCUPATIONAL HISTORY";
         default:
           return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
@@ -59,33 +65,13 @@ Vue.component("main-form", {
         <v-window-item :value="3">
           <rehab-information @rehabInformation="rehabInfoData= $event"></rehab-information>
         </v-window-item>
+
         <v-window-item :value="4">
-          <div class="pa-4 text-center">
-              <v-img
-                class="mb-4"
-                contain
-                height="128"
-                src="https://cdn.vuetifyjs.com/images/logos/v.svg"
-              ></v-img>
-              <h3 class="title font-weight-light mb-2">
-              Welcome to Vuetify
-              </h3>
-              <span class="caption grey--text">Thanks for signing up!</span>
-          </div>
+          <rehab-information-2 @rehabInformation2="rehabInfo2Data= $event"></rehab-information-2>
         </v-window-item>
+
         <v-window-item :value="5">
-          <div class="pa-4 text-center">
-              <v-img
-                class="mb-4"
-                contain
-                height="128"
-                src="https://cdn.vuetifyjs.com/images/logos/v.svg"
-              ></v-img>
-              <h3 class="title font-weight-light mb-2">
-              Welcome to Vuetify
-              </h3>
-              <span class="caption grey--text">Thanks for signing up!</span>
-          </div>
+          <rehab-information-3 @rehabInformation3="rehabInfo3Data= $event"></rehab-information-3>
         </v-window-item>
       </v-window>
   

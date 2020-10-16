@@ -4,6 +4,7 @@ Vue.component("rehab-information", {
       return {
 
         fields: [
+
             { id: 1, label: 'Have you had surgery for your condition?', md: 9 , sm: 6, type: 'radio', value: 'No' },
             { id: 2, label: 'If yes, Date condition', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
             { id: 3, label: 'Is a condition related with Car accident?', md: 9 , sm: 6, type: 'radio', value: 'No' },
@@ -14,10 +15,7 @@ Vue.component("rehab-information", {
             { id: 8, label: 'If yes, Date Work accident', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
             { id: 9, label: 'Have you had any injections for your condition?', md: 9 , sm: 6, type: 'radio', value: 'No' },
             { id: 10, label: 'If yes, Date Your condition5', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
-            { id: 11, label: 'Please list any diagnostic test you have had for this condition', md: 12 , sm: 6, type: 'text', value: null },
-            { id: 12, label: 'Please list any medication that are you taking', md: 12 , sm: 6, type: 'text', value: null },
-            { id: 13, label: 'What are your current symptoms?', md: 12 , sm: 6, type: 'text', value: null },
-            { id: 14, label: 'How the injury or problem occurred?', md: 12 , sm: 6, type: 'text', value: null },
+          
         ]
               
       };
@@ -37,13 +35,7 @@ Vue.component("rehab-information", {
     },
     template: /*html*/ `
       <v-container>
-
-        <v-card-text>
-            <span class="text-descript grey--text">
-                Mark all that apply: This information is confidential and remains part of your chart
-            </span>
-        </v-card-text>
-
+          
         <v-row no-gutters>
 
           <v-col v-for="(field, index) in fields" :key="index" cols="12" :md="field.md" :sm="field.sm">
@@ -100,23 +92,6 @@ Vue.component("rehab-information", {
 
                 </v-menu>
 
-            </v-card-text>
-
-            <!-- Text -->
-            <v-card-text class="other" v-if="field.type === 'text'">
-
-                <v-text-field
-                outlined
-                :label="field.label"
-                v-model="field.value"
-                ></v-text-field> 
-           </v-card-text>
-
-            <!-- Checkbox -->
-            <v-card-text class="check-field"  v-if="field.type === 'checkbox'">
-                <v-checkbox class="check-container" v-model="field.value"
-                    :label="field.label"
-                ></v-checkbox>
             </v-card-text>
         
           </v-col>

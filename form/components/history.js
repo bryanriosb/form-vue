@@ -4,6 +4,7 @@ Vue.component("medical-histoy", {
       return {
         
         fields: [
+
           { label: 'Name', type:'text', md: 4 , sm: 6, value: null },
           { label: 'Date', type: 'date', md: 3 , sm: 6, menu: false, value: moment().format("YYYY-MM-DD") },
           { label: 'Birthday', type: 'date', md: 3 , sm: 6, menu: false, value: null },
@@ -13,7 +14,8 @@ Vue.component("medical-histoy", {
           { label: 'Phone', type: 'number', md: 3,  sm: 6, alue: null },
           { label: 'Address', type: 'text', md: 4,  sm: 6, alue: null },
           { label: 'Chief Complaint/Injury', md: 5 , sm: 6, type: 'text', value: null },
-          { label: 'Date of Injury', type: 'date', md: 3,  sm: 6, enu: false, value: null },
+          { label: 'Date of Injury', type: 'date', md: 3,  sm: 6, enu: false, value: null }
+
         ],
       
       };

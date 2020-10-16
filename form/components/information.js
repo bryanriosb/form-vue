@@ -2,8 +2,9 @@ Vue.component("medical-information", {
 
     data() {
       return {
-          
+
         fields: [
+
           { label: 'Heart Disease', type: 'checkbox', md: 3 , sm: 6, value: null },
           { label: 'Diabetes', type: 'checkbox', md: 3 , sm: 6, value: null },
           { label: 'High Blood Pressure', type: 'checkbox', md: 3 , sm: 6, value: null },
@@ -24,7 +25,8 @@ Vue.component("medical-information", {
           { label: 'Hepatitis', md: 3 , sm: 6, type: 'checkbox', value: null },
           { label: 'Latex Allergy', md: 3 , sm: 6, type: 'checkbox', value: null },
           { label: 'Depression/Anxiety', md: 3 , sm: 6, type: 'checkbox', value: null },
-          { label: 'Other (please explain)', md: 12, sm: 12, type: 'text', value: null },
+          { label: 'Other (please explain)', md: 12, sm: 12, type: 'text', value: null }
+          
         ],
       
       };
