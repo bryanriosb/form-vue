@@ -9,7 +9,7 @@ Vue.component("medical-histoy", {
           { label: 'Date', type: 'date', md: 3, sm: 6, menu: false, value: moment().format("YYYY-MM-DD") },
           { label: 'Birthday', type: 'date', md: 3 , sm: 6, menu: false, value: null },
           { label: 'Age', type: 'number', md: 2,  sm: 6, alue: null },
-          { label: 'Do you have a prescription?', md: 10 , sm: 6, type: 'radio', value: null },
+          { label: 'Do you have a prescription?', md: 5 , sm: 6, type: 'radio', value: null },
           { label: 'Referring Physician', md: 8 , sm: 6, type: 'text', value: null },
           { label: 'Phone', type: 'number', md: 4,  sm: 6, alue: null },
           { label: 'Address', type: 'text', md: 12,  sm: 6, alue: null },
@@ -139,18 +139,18 @@ Vue.component("medical-histoy", {
             </v-card-text>
             
             <!-- Radio Buttons -->
-            <v-card-text v-if="field.type === 'radio'">
+            <v-list-item  v-if="field.type === 'radio'">
 
-              <v-radio-group v-model="field.value" row >
+                <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
 
-                <p class="radio-label-mh">{{ field.label }}</p>
-                
-                <v-radio class="radio-button" label="Yes"  value="Yes"></v-radio> 
-                <v-radio class="radio-button" label="No" value="No" ></v-radio>
-    
-              </v-radio-group>
-
-            </v-card-text>
+                <v-list-item-action>
+                    <v-radio-group class="label-radio" v-model="field.value" row >
+                        <v-radio class="radio-button-3"  label="Yes"  value="Yes"></v-radio> 
+                        <v-radio class="radio-button-3" label="No" value="No" ></v-radio>
+                    </v-radio-group>
+                </v-list-item-action>
+        
+            </v-list-item>       
 
           </v-col>
 

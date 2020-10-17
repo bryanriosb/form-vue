@@ -52,7 +52,7 @@ Vue.component("rehab-information-3", {
                     md="8"
                 >
                     <v-sheet
-                    elevation="4"
+                    elevation="3"
                     class="py-4 px-1"
                     >   
 
@@ -62,7 +62,7 @@ Vue.component("rehab-information-3", {
 
                         <v-chip-group v-model="field.value"
                             active-class="primary--text"
-                            center-active
+                            mandatory
                         >
                             <v-chip
                                 v-for="(i, index) in icons"

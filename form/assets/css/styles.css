@@ -78,7 +78,13 @@
     margin-left: 6%;
 }
 
-.label-date {
+.radio-button-3 {
+    position: relative;
+    top: 10px;
+}
+
+.label-date, .label-up-field  {
+
     font-weight: 500;
     color: #e9521d;
 }
@@ -97,6 +103,18 @@
     font-weight: 500;
     color: #e9521d;
 }
+
+.label-other-rehab {
+    position: relative;
+    top: -2px;
+}
+
+.radio-label-rehab {
+    position: relative;
+    padding-right: 8%;
+}
+
+
 
 @media only screen and (min-width: 958px) {
     #custom-label {

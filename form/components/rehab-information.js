@@ -24,14 +24,14 @@ Vue.component("rehab-information", {
       this.$emit('rehabInformation', this.fields);
     },
     methods: {
-        change( event, index ){
+      radioValue( value, index ){
 
-            if( event === 'Yes' ) {
-                this.fields[ index + 1 ].disabled = false;
-            } else {
-                this.fields[ index + 1 ].disabled = true;
-            }
-        }
+          if( event === 'Yes' ) {
+              this.fields[ index + 1 ].disabled = false;
+          } else {
+              this.fields[ index + 1 ].disabled = true;
+          }
+      }
     },
     template: /*html*/ `
       <v-container>
@@ -46,7 +46,7 @@ Vue.component("rehab-information", {
               <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
 
               <v-list-item-action>
-                  <v-radio-group class="label-radio" @change="change($event, index)" v-model="field.value" row >
+                  <v-radio-group class="label-radio" @change="radioValue($event, index)" v-model="field.value" row >
                       <v-radio  label="Yes"  value="Yes"></v-radio> 
                       <v-radio label="No" value="No" ></v-radio>
                   </v-radio-group>
@@ -57,9 +57,9 @@ Vue.component("rehab-information", {
             <!-- Date -->
             <v-card-text class="field" v-if="field.type === 'date'" ref="date"> 
 
-                <center>
+                <div class="label-other-rehab">
                     <span class="label-date" v-if="!field.disabled">Select Date</span> 
-                </center>
+                </div>
                 
                 <v-menu 
                     v-model="field.menu"

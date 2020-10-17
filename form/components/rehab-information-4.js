@@ -5,72 +5,115 @@ Vue.component("rehab-information-4", {
 
         fields: [
             
-            { label: 'Is your pain?', md: 4 , sm: 6, type: 'select', other: null, value: null },
-            { label: 'Other', md: 4 , sm: 6, type: 'text', value: null },
-            { label: 'CURRENT', md: 1 , sm: 2, type: 'radio', value: null },
-            { label: 'Where is your pain or problem located?', md: 12 , sm: 6, type: 'text', value: null }
+            { label: 'Is your pain?', md: 6 , sm: 6, type: 'select', other: null, value: null },
+            { label: 'Other', md: 6 , sm: 6, type: 'text', disabled: true, value: null},
+            { label: 'What makes your pain/problem better?', md: 6 , sm: 6, type: 'text', value: null },
+            { label: 'Worse?', md: 6 , sm: 6, type: 'text', value: null },
+            { label: 'Is there pain at night?', md: 6 , sm: 6, type: 'radio', value: null },
+            { label: 'What position helps you to sleep?', md: 6 , sm: 6, type: 'text', value: null },
+            { label: 'Have you received therapy for this condition?', md: 6 , sm: 6, type: 'radio', value: null },
+            { label: 'If yes , When?', md: 6 , sm: 6, type: 'text', disabled: true, value: null },
 
         ],
         select: [
 
-            { type: 'Constant' },
-            { type: 'Intermitten' },
-            { type: 'Dull' },
-            { type: 'Sharp' },
-            { type: 'Other' },
+            'Constant',
+            'Intermitten',
+            'Dull',
+            'Sharp',
+            'Other'
 
         ]    
               
       };
     },
-    mounted() {1
+    mounted() {
       this.$emit('rehabInformation4', this.fields);
     },
     methods: {
+
+        selectedValue( value, index ) {
+
+            if( value === 'Other' ) {
+                this.fields[ index + 1 ].disabled = false;
+            } else {
+                this.fields[ index + 1 ].disabled = true;
+            }
+        },
+
+        radioValue( value, index ){
+
+            if( value === 'Yes' ) {
+                this.fields[ index + 1 ].disabled = false;
+            } else {
+                this.fields[ index + 1 ].disabled = true;
+            }
+        }
         
     },
     template: /*html*/ `
 
-        <v-container class="rating-container">
+        <v-container fluid>
+            
+            <v-row no-gutters>
+            
+                <v-col class="d-flex" v-for="(field, index) in fields" :key="index" cols="12" :md="field.md" :sm="field.sm">
+                    
+                    <!-- Select -->
+                    <v-card-text class="field" v-if="field.type === 'select'">
 
-            <v-card-text>
-                <span class="text-descript grey--text">
-                  Please rate your pain marking the number that best correspond to your pain:
-                </span>
-            </v-card-text>
+                        <v-select 
+                            :items="select" :label="field.label"s
+                            outlined  v-model="field.value"
+                            @change="selectedValue($event, index)"
+                        > </v-select>
 
-            <div class="rating">
+                    </v-card-text>
 
-                <v-row class="row-rating" no-gutters v-for="( field, index ) in fields" 
-                :key="index" cols="12" :md="field.md" :sm="field.sm" v-if="field.type === 'radio'">
+                    <!-- Text -->
+                
+                    <v-card-text class="field" v-if="field.type === 'text'">
 
-                    <p class="radio-rating-label">{{ field.label }}</p>
-                    <v-col v-for="( i, index ) in icons" :key="index">
+                        <div class="label-other-rehab"  v-if="index === 1">
+                            <span class="label-up-field" v-if="!field.disabled">Please write which</span> 
+                        </div>
+
+                        <div class="label-other-rehab"  v-if="index === 7">
+                            <span class="label-up-field" v-if="!field.disabled">Please write when</span> 
+                        </div>
+
+                        <v-text-field
+                            :disabled="field.disabled"
+                            outlined
+                            :label="field.label"
+                            v-model="field.value"
+                        ></v-text-field>
                         
-                        <v-radio-group class="icons" v-model="field.value" row >
-                          
-                            <v-img class="emoji" :src="i.icon"></v-img>
+                    </v-card-text>    
+                    
+                    <!-- Radio Buttons -->
+                    <v-list-item  v-if="field.type === 'radio'">
 
-                            <v-radio :label="String(index)" :value="i.value"></v-radio> 
-                          
-                        </v-radio-group>
-                                    
-                    </v-col>
+                        <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
+        
+                        <v-list-item-action>
+                            <v-radio-group class="label-radio" @change="radioValue($event, index)" v-model="field.value" row >
+                                <v-radio class="radio-button-3"  label="Yes"  value="Yes"></v-radio> 
+                                <v-radio class="radio-button-3" label="No" value="No" ></v-radio>
+                            </v-radio-group>
+                        </v-list-item-action>
+                
+                    </v-list-item>        
+               
+                
+               
+           
 
-                </v-row>
+                </v-col>
+            
+            </v-row>
 
-            </div>
-
-            <!-- Text -->
-            <v-card-text v-if="fields[3].type === 'text'">
-
-                <v-text-field
-                outlined
-                :label="fields[3].label"
-                v-model="fields[3].value"
-                ></v-text-field> 
-
-            </v-card-text>
+            
           
         </v-container>
 
