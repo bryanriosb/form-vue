@@ -38,21 +38,21 @@ Vue.component("rehab-information", {
           
         <v-row no-gutters>
 
-          <v-col v-for="(field, index) in fields" :key="index" cols="12" :md="field.md" :sm="field.sm">
+          <v-col class="d-flex" v-for="(field, index) in fields" :key="index" cols="12" :md="field.md" :sm="field.sm">
 
             <!-- Radio Buttons -->
-            <v-card-text  v-if="field.type === 'radio'">
+            <v-list-item  v-if="field.type === 'radio'">
 
+              <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
 
-                <v-radio-group class="label-radio" @change="change($event, index)" v-model="field.value" row >
-
-                    <p class="radio-label-ri">{{ field.label }}</p>
-                    <v-radio class="radio-button2" label="Yes"  value="Yes"></v-radio> 
-                    <v-radio class="radio-button2" label="No" value="No" ></v-radio>
+              <v-list-item-action>
+                  <v-radio-group class="label-radio" @change="change($event, index)" v-model="field.value" row >
+                      <v-radio  label="Yes"  value="Yes"></v-radio> 
+                      <v-radio label="No" value="No" ></v-radio>
+                  </v-radio-group>
+              </v-list-item-action>
         
-                </v-radio-group>
-
-            </v-card-text>
+            </v-list-item>
 
             <!-- Date -->
             <v-card-text class="field" v-if="field.type === 'date'" ref="date"> 

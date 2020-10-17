@@ -30,7 +30,7 @@
 
 .radio-label-mh {
     position: relative;
-    margin: 0 40px 0 20px !important;
+    padding-right: 18%;
 }
 
 .field {
@@ -59,13 +59,18 @@
 .radio-label-ri {
     position: relative;
     top: 10px;
-    margin-left: 20px !important;
+
 }
 
 .label-radio {
     position: relative;
     bottom: 15px;
     padding-left: 10%;
+}
+
+.radio-button {
+    position: relative;
+    bottom: 10px;
 }
 
 .radio-button2 {
@@ -83,33 +88,19 @@
     text-align: center;
 }
 
-.rating{
-    line-height: 1;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .row-rating {
-    border: solid 1px rgba(0,0,0,.38);
-    border-radius: 5px;
-    padding-top: 30px;
-    padding-left: 30px;
     margin: 30px;
-
 }
-
-.emoji {
-    position: absolute;
-    max-width: 32px;
-    left: -2px;
-    bottom: 25px;
-}
-
 
 .radio-rating-label {
-    position: relative;
-    margin-right: 30px;
-    padding: 20px;
+    text-align: center;
     font-weight: 500;
     color: #e9521d;
+}
+
+@media only screen and (min-width: 958px) {
+    #custom-label {
+        display: none;
+        font-size: 14px;
+    }
 }

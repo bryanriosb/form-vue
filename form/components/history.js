@@ -5,15 +5,15 @@ Vue.component("medical-histoy", {
         
         fields: [
 
-          { label: 'Name', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Date', type: 'date', md: 3 , sm: 6, menu: false, value: moment().format("YYYY-MM-DD") },
+          { label: 'Name', type:'text', md: 6 , sm: 6, value: null },
+          { label: 'Date', type: 'date', md: 3, sm: 6, menu: false, value: moment().format("YYYY-MM-DD") },
           { label: 'Birthday', type: 'date', md: 3 , sm: 6, menu: false, value: null },
           { label: 'Age', type: 'number', md: 2,  sm: 6, alue: null },
-          { label: 'Do you have a prescription?', md: 5 , sm: 6, type: 'radio', value: null },
-          { label: 'Referring Physician', md: 4 , sm: 6, type: 'text', value: null },
-          { label: 'Phone', type: 'number', md: 3,  sm: 6, alue: null },
-          { label: 'Address', type: 'text', md: 4,  sm: 6, alue: null },
-          { label: 'Chief Complaint/Injury', md: 5 , sm: 6, type: 'text', value: null },
+          { label: 'Do you have a prescription?', md: 10 , sm: 6, type: 'radio', value: null },
+          { label: 'Referring Physician', md: 8 , sm: 6, type: 'text', value: null },
+          { label: 'Phone', type: 'number', md: 4,  sm: 6, alue: null },
+          { label: 'Address', type: 'text', md: 12,  sm: 6, alue: null },
+          { label: 'Chief Complaint/Injury', md: 9 , sm: 6, type: 'text', value: null },
           { label: 'Date of Injury', type: 'date', md: 3,  sm: 6, enu: false, value: null }
 
         ],
@@ -137,15 +137,16 @@ Vue.component("medical-histoy", {
               ></v-text-field>
               
             </v-card-text>
-
+            
             <!-- Radio Buttons -->
             <v-card-text v-if="field.type === 'radio'">
 
               <v-radio-group v-model="field.value" row >
 
                 <p class="radio-label-mh">{{ field.label }}</p>
-                <v-radio label="Yes"  value="Yes"></v-radio> 
-                <v-radio label="No" value="No" ></v-radio>
+                
+                <v-radio class="radio-button" label="Yes"  value="Yes"></v-radio> 
+                <v-radio class="radio-button" label="No" value="No" ></v-radio>
     
               </v-radio-group>
 
