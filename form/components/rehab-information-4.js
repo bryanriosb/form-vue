@@ -5,7 +5,7 @@ Vue.component("rehab-information-4", {
 
         fields: [
             
-            { label: 'Is your pain?', md: 6 , sm: 6, type: 'select', other: null, value: null },
+            { label: 'Is your pain?', md: 6 , sm: 6, type: 'select', value: null },
             { label: 'Other', md: 6 , sm: 6, type: 'text', disabled: true, value: null},
             { label: 'What makes your pain/problem better?', md: 6 , sm: 6, type: 'text', value: null },
             { label: 'Worse?', md: 6 , sm: 6, type: 'text', value: null },
@@ -54,7 +54,7 @@ Vue.component("rehab-information-4", {
     template: /*html*/ `
 
         <v-container fluid>
-            
+
             <v-row no-gutters>
             
                 <v-col class="d-flex" v-for="(field, index) in fields" :key="index" cols="12" :md="field.md" :sm="field.sm">

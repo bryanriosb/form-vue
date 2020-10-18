@@ -8,6 +8,8 @@ Vue.component("main-form", {
       rehabInfo2Data: null,
       rehabInfo3Data: null,
       rehabInfo4Data: null,
+      ocupationalHistData: null,
+      ocupationalHist2Data: null
     };
   },
   computed: {
@@ -26,6 +28,8 @@ Vue.component("main-form", {
         case 6:
           return "REHAB INFORMATION";
         case 7:
+          return "OCUPATIONAL HISTORY";
+        case 8:
           return "OCUPATIONAL HISTORY";
         default:
           return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
@@ -80,6 +84,15 @@ Vue.component("main-form", {
         <v-window-item :value="6">
           <rehab-information-4 @rehabInformation4="rehabInfo4Data= $event"></rehab-information-4>
         </v-window-item>
+        
+        <v-window-item :value="7">
+          <ocupational-history @ocupationalHistory="ocupationalHistData= $event"></ocupational-history>
+        </v-window-item>
+
+        <v-window-item :value="8">
+          <ocupational-history-2 @ocupationalHistory2="ocupationalHist2Data= $event"></ocupational-history-2>
+        </v-window-item>
+
       </v-window>
   
         <v-divider></v-divider>
@@ -94,7 +107,7 @@ Vue.component("main-form", {
         </v-btn>
         <v-spacer></v-spacer>
         <v-btn
-          :disabled="step === 8"
+          :disabled="step === 12"
           color="primary"
           depressed
           @click="step++"
