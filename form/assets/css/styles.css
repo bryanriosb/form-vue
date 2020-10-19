@@ -10,6 +10,10 @@
     z-index: 3;
 }
 
+.avatar {
+    padding: 2px;
+}
+
 .back-logo {
     position: absolute;
     left: 50%;

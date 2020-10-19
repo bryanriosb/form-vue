@@ -26,7 +26,7 @@ Vue.component("rehab-information", {
     methods: {
       radioValue( value, index ){
 
-          if( event === 'Yes' ) {
+          if( value === 'Yes' ) {
               this.fields[ index + 1 ].disabled = false;
           } else {
               this.fields[ index + 1 ].disabled = true;

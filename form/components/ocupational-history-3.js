@@ -1,37 +1,26 @@
-Vue.component("ocupational-history", {
+Vue.component("ocupational-history-3", {
 
     data() {
       return {
 
         fields: [
             
-            { label: 'Are you currently working', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'If no, How many days of work have you missed?', md: 6 , sm: 6, type: 'text', disabled: true, value: null},
-            { label: 'Are you job duties', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'How many hours a day do you work?', md: 6 , sm: 6, type: 'number', value: null },
-            { label: 'Who is your employer?', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'What type of work do you do?', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'Have you received therapy for this condition?', md: 6 , sm: 6, type: 'radio', value: null },
-          
+            { label: 'Do you smoke?', md: 6 , sm: 6, type: 'radio', value: null },
+            { label: 'If yes, how much?', md: 6 , sm: 6, type: 'text', disabled: true, value: null},
+            { label: 'Are you invlove in any sport activitie?', md: 6 , sm: 6, type: 'radio', value: null },
+            { label: 'How many hours a week?', md: 6 , sm: 6, type: 'number', value: null },
+            { label: 'When are you schedule to see your doctor again?', md: 12 , sm: 6, type: 'text', value: null },
+            { label: 'Therapist comment’s ', md: 12 , sm: 6, type: 'text-area', value: null }
         ]
               
       };
     },
     mounted() {
-      this.$emit('ocupationalHistory', this.fields);
+      this.$emit('ocupationalHistory3', this.fields);
     },
     methods: {
 
         radioValue( value, index ){
-
-            if( value === 'No' ) {
-                this.fields[ index + 1 ].disabled = false;
-            } else {
-                this.fields[ index + 1 ].disabled = true;
-            }
-        },
-
-        radioValue2( value, index ){
 
             if( value === 'Yes' ) {
                 this.fields[ index + 1 ].disabled = false;
@@ -50,7 +39,7 @@ Vue.component("ocupational-history", {
                 <v-col class="d-flex" v-for="(field, index) in fields" :key="index" cols="12" :md="field.md" :sm="field.sm">
 
                     <!-- Radio Buttons -->
-                    <v-list-item  v-if="field.type === 'radio' && index === 0">
+                    <v-list-item  v-if="field.type === 'radio'">
 
                         <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
         
@@ -62,26 +51,12 @@ Vue.component("ocupational-history", {
                         </v-list-item-action>
                 
                     </v-list-item>        
-
-                    <!-- Radio Buttons -->
-                    <v-list-item  v-if="field.type === 'radio' && index > 0">
-
-                        <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
-        
-                        <v-list-item-action>
-                            <v-radio-group class="label-radio" @change="radioValue2($event, index)" v-model="field.value" row >
-                                <v-radio class="radio-button-3"  label="Yes"  value="Yes"></v-radio> 
-                                <v-radio class="radio-button-3" label="No" value="No" ></v-radio>
-                            </v-radio-group>
-                        </v-list-item-action>
-                
-                    </v-list-item>        
             
                     <!-- Text -->
                     <v-card-text class="field" v-if="field.type === 'text'">
 
                         <div class="label-other-rehab"  v-if="index === 1">
-                            <span class="label-up-field" v-if="!field.disabled">How many days?</span> 
+                            <span class="label-up-field" v-if="!field.disabled">How much?</span> 
                         </div>
 
                         <v-text-field
@@ -105,12 +80,22 @@ Vue.component("ocupational-history", {
                         
                     </v-card-text>
 
+                    <!-- Text Area -->
+                    <v-card-text class="field" v-if="field.type === 'text-area'">
+
+                        <v-textarea
+                            outlined
+                            name="input-7-4"
+                            :label="field.label"
+                            v-model="field.value"
+                        ></v-textarea>
+                        
+                    </v-card-text>
+
                 </v-col>
             
             </v-row>
-
             
-          
         </v-container>
 
     `,

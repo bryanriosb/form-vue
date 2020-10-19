@@ -9,7 +9,16 @@ Vue.component("main-form", {
       rehabInfo3Data: null,
       rehabInfo4Data: null,
       ocupationalHistData: null,
-      ocupationalHist2Data: null
+      ocupationalHist2Data: null,
+      ocupationalHist3Data: null,
+      commerInsuranceData: null,
+      commerInsurance2Data: null,
+      commerInsurance3Data: null,
+      commerInsurance4Data: null,
+      commerInsurance5Data: null,
+      commerInsurance6Data: null,
+      commerInsurance7Data: null,
+      commerInsurance8Data: null
     };
   },
   computed: {
@@ -31,6 +40,30 @@ Vue.component("main-form", {
           return "OCUPATIONAL HISTORY";
         case 8:
           return "OCUPATIONAL HISTORY";
+        case 9:
+          return "OCUPATIONAL HISTORY";
+
+        case 10:
+          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+
+        case 11:
+          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+
+        case 12:
+          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+
+        case 13:
+          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+
+        case 14:
+          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+
+        case 15:
+          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+
+        case 16:
+        return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+    
         default:
           return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
       }
@@ -54,8 +87,9 @@ Vue.component("main-form", {
       
         <span id="title-label">{{ currentTitle }}</span>
   
-        <v-avatar color="primary lighten-2" class="subheading white--text"
-        size="24" v-text="step" ></v-avatar>
+        <v-avatar color="avatar primary lighten-2" class="subheading white--text"
+        size="28" v-text="step"
+        ></v-avatar>
       
       </v-card-title>
   
@@ -93,6 +127,42 @@ Vue.component("main-form", {
           <ocupational-history-2 @ocupationalHistory2="ocupationalHist2Data= $event"></ocupational-history-2>
         </v-window-item>
 
+        <v-window-item :value="9">
+          <ocupational-history-3 @ocupationalHistory2="ocupationalHist3Data= $event"></ocupational-history-3>
+        </v-window-item>
+
+        <v-window-item :value="10">
+          <commercial-insurance @commercilaInsurance="commerInsuranceData= $event"></commercial-insurance>
+        </v-window-item>
+
+        <v-window-item :value="11">
+          <commercial-insurance-2 @commercialInsurance2="commerInsurance2Data= $event"></commercial-insurance-2>
+        </v-window-item>
+
+        <v-window-item :value="12">
+          <commercial-insurance-3 @commercilalnsurance3="commerInsurance3Data= $event"></commercial-insurance-3>
+        </v-window-item>
+
+        <v-window-item :value="13">
+          <commercial-insurance-4 @commercialInsurance4="commerInsurance4Data= $event"></commercial-insurance-4>
+        </v-window-item>
+
+        <v-window-item :value="14">
+          <commercial-insurance-5 @commercialInsurance5="commerInsurance5Data= $event"></commercial-insurance-5>
+        </v-window-item>
+
+        <v-window-item :value="15">
+          <commercial-insurance-6 @commercialInsurance6="commerInsurance6Data= $event"></commercial-insurance-6>
+        </v-window-item>
+
+        <v-window-item :value="16">
+          <commercial-insurance-7 @commercialInsurance7="commerInsurance7Data= $event"></commercial-insurance-7>
+        </v-window-item>
+
+        <v-window-item :value="17">
+          <commercial-insurance-8 @commercialInsurance8="commerInsurance8Data= $event"></commercial-insurance-8>
+        </v-window-item>
+
       </v-window>
   
         <v-divider></v-divider>
@@ -107,7 +177,7 @@ Vue.component("main-form", {
         </v-btn>
         <v-spacer></v-spacer>
         <v-btn
-          :disabled="step === 12"
+          :disabled="step === 17"
           color="primary"
           depressed
           @click="step++"

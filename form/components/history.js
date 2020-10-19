@@ -106,7 +106,7 @@ Vue.component("medical-histoy", {
                   <v-text-field no-gutters
                     outlined
                     prepend-inner-icon="mdi-calendar"
-                    v-model.lazy="field.value"
+                    v-model="field.value"
                     :label="field.label"
                     readonly
                     v-bind="attrs"
@@ -118,7 +118,6 @@ Vue.component("medical-histoy", {
                 <v-date-picker
                   v-model="field.value"
                   @input="field.menu = false; calculateAge()"
-                  
                 ></v-date-picker>
 
               </v-menu>
