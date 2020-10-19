@@ -59,7 +59,7 @@ Vue.component("commercial-insurance-7", {
 
              <!-- Checkbox -->
              <v-card-text class="check-field"  v-if="field.type === 'checkbox'">
-                  <v-checkbox class="check-container" v-model="field.value"
+                  <v-checkbox class="check-container2" v-model="field.value"
                       :label="field.content"
                   ></v-checkbox>
               </v-card-text>
