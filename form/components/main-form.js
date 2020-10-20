@@ -159,9 +159,9 @@ Vue.component("main-form", {
           <commercial-insurance-7 @commercialInsurance7="commerInsurance7Data= $event"></commercial-insurance-7>
         </v-window-item>
 
-        <v-window-item :value="17">
+        <!-- <v-window-item :value="17">
           <commercial-insurance-8 @commercialInsurance8="commerInsurance8Data= $event"></commercial-insurance-8>
-        </v-window-item>
+        </v-window-item> -->
 
       </v-window>
   

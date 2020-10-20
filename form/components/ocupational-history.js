@@ -10,8 +10,8 @@ Vue.component("ocupational-history", {
             { label: 'Are you job duties', md: 6 , sm: 6, type: 'radio', value: null },
             { label: 'How many hours a day do you work?', md: 6 , sm: 6, type: 'number', value: null },
             { label: 'Who is your employer?', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'What type of work do you do?', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'Have you received therapy for this condition?', md: 6 , sm: 6, type: 'radio', value: null },
+            { label: 'What type of work do you do?', md: 12 , sm: 6, type: 'text', value: null }
+          
           
         ]
               

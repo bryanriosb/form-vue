@@ -20,7 +20,7 @@ Vue.component("commercial-insurance", {
           { label: 'Email address', type: 'text', md: 6,  sm: 6, value: null },
           { label: 'Date of Birth', type: 'date', md: 3,  sm: 6, menu: false, value: null },
           { label: 'Legal Sex', md: 3 , sm: 6, type: 'select', value: null },
-          { label: 'How would you like to receive appointment reminders?', type: 'radio', md: 12,  sm: 6, alue: null }
+          { label: 'How would you like to receive appointment reminders?', type: 'select', md: 12,  sm: 6, alue: null }
 
         ],
         placePhone: [
@@ -35,7 +35,14 @@ Vue.component("commercial-insurance", {
             'Male',
             'Female'
 
-        ]
+        ],
+        appointmentRemainders: [
+
+            'Call',
+            'Text',
+            'Email'
+
+        ],
 
       };
     },
@@ -103,8 +110,13 @@ Vue.component("commercial-insurance", {
                 <v-select v-if="index === 14"
                     :items="legalSex" :label="field.label"
                     outlined  v-model="field.value"
-                    @change="selectedValue($event, index)"
                 > </v-select>
+
+                <v-select v-if="index === 15"
+                    :items="appointmentRemainders" :label="field.label"
+                    outlined  v-model="field.value"
+                > </v-select>
+
 
             </v-card-text>
             

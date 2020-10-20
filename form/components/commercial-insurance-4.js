@@ -7,10 +7,11 @@ Vue.component("commercial-insurance-4", {
 
           { label: 'Would you like an e-mail receipt with each transaction?', type:'radio', md: 6 , sm: 6, value: null },
           { label: 'Name on Card:', type:'text', md: 6 , sm: 6, value: null },
-          { label: 'Credit card type', type:'select', md: 6 , sm: 6, value: null },
-          { label: 'Expidation date', type:'date', md: 6 , sm: 6, value: null },
-          { label: 'Security code', type:'number', md: 6 , sm: 6, value: null },
-          { label: 'Billing zip code', type:'number', md: 6 , sm: 6, value: null }
+          { label: 'Credit card type', type:'select', md: 3 , sm: 6, value: null },
+          { label: 'Credit card number', type:'number', md: 3 , sm: 6, value: null },
+          { label: 'Expidation date', type:'date', md: 3 , sm: 6, value: null },
+          { label: 'Security code', type:'number', md: 3 , sm: 6, value: null },
+          { label: 'Billing zip code', type:'number', md: 3 , sm: 6, value: null }
                        
         ],
         cards: [

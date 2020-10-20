@@ -77,7 +77,6 @@ Vue.component("commercial-insurance-2", {
                 <v-select
                     :items="filingInsurance" :label="field.label"
                     outlined  v-model="field.value"
-                    @change="selectedValue($event, index)"
                 > </v-select>
 
             </v-card-text>
