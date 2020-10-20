@@ -9,7 +9,7 @@ Vue.component("commercial-insurance", {
           { label: 'First', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'Middle Initial', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'Street Address', type:'text', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
-          { label: 'Apt#', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Apt#', type:'number', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'City', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'State', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'Zip Code', type:'number', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },

@@ -95,6 +95,8 @@ Vue.component("rehab-information-3", {
                 <v-text-field
                 outlined
                 :label="fields[3].label"
+                :rules="fields[3].rule"
+                required
                 v-model="fields[3].value"
                 ></v-text-field> 
 

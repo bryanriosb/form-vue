@@ -1,10 +1,11 @@
 Vue.component("main-form", {
   data() {
     return {
-      valid: null,
+  
       step: 1,
       form: {
 
+        isValid: null,
         mediHistoryData: null,
         mediInfoData: null,
         rehabInfoData: null,
@@ -28,6 +29,7 @@ Vue.component("main-form", {
     };
   },
   computed: {
+    
     currentTitle() {
       switch (this.step) {
         case 1:
@@ -73,11 +75,12 @@ Vue.component("main-form", {
         default:
           return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
       }
-    },
+    }
   },
-
   template: /*html*/ `
     <v-card  id="main-form" height="100%" class="mx-auto" elevation="2"  outlined  max-width="1100">
+
+      {{ form.isValid }}
 
       <div class="back-logo">
         <img class="img-bh" src="assets/img/bh.png" alt="image/png">
@@ -102,7 +105,7 @@ Vue.component("main-form", {
 
       <v-form
         ref="form"
-        v-model="valid"
+        v-model="form.isValid"
         lazy-validation
       >
   
@@ -170,7 +173,7 @@ Vue.component("main-form", {
           </v-window-item>
 
           <v-window-item :value="16">
-            <commercial-insurance-7 @commercialInsurance7="form.commerInsurance7Data= $event"></commercial-insurance-7>
+            <commercial-insurance-7 :formvalue="form" @commercialInsurance7="form.commerInsurance7Data= $event"></commercial-insurance-7>
           </v-window-item>
 
           <!-- <v-window-item :value="17">

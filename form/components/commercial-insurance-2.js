@@ -13,7 +13,7 @@ Vue.component("commercial-insurance-2", {
           { label: 'Legal Sex', md: 3 , sm: 6, type: 'select', value: null, rule: [v => !!v || 'Field is required']  },
           { label: 'Date of Birth', type: 'date', md: 3,  sm: 6, menu: false, value: null, rule: [v => !!v || 'Field is required']  },
           { label: 'Street Address', type:'text', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
-          { label: 'Apt#', type:'text', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Apt#', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
           { label: 'City', type:'text', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
           { label: 'State', type:'text', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
           { label: 'Zip Code', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },

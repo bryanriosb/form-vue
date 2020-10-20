@@ -6,9 +6,9 @@ Vue.component("commercial-insurance-5", {
         fields: [
 
           { label: 'Employer Name:', type:'text', md: 12 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Employer Phone #', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Employer Phone #', type:'number', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Street Address', type:'text', md: 8 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Suite#', type:'text', md:3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Suite#', type:'number', md:3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'City', type:'text', md: 3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'State', type:'text', md:3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Zip Code', type:'number', md: 3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] }

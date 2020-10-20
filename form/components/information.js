@@ -27,8 +27,7 @@ Vue.component("medical-information", {
           { label: 'Depression/Anxiety', md: 3 , sm: 6, type: 'checkbox', value: null },
           { label: 'Other (please explain)', md: 12, sm: 12, type: 'text', value: null }
           
-        ],
-      
+        ]     
       };
     },
     mounted() {
@@ -72,6 +71,8 @@ Vue.component("medical-information", {
       </v-container>
 
     `,
+
+    props:['formvalue']
 
 });
    

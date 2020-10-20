@@ -57,6 +57,17 @@ Vue.component("commercial-insurance-3", {
                 ></v-checkbox>
             </v-card-text>
 
+            <!-- Text -->
+            <v-card-text v-if="field.type === 'text'">
+
+            <v-text-field
+            outlined
+            :label="field.label"
+            v-model="field.value"
+            ></v-text-field> 
+
+         </v-card-text>
+
           </v-col>
 
         </v-row>

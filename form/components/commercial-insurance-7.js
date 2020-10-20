@@ -28,13 +28,16 @@ Vue.component("commercial-insurance-7", {
             type:'checkbox', md: 12 , sm: 12, value: null, rule: [v => !!v || 'Field is required']  
           }
                
-        ],
-        form: null
-
+        ]
       };
     },
     mounted() {
       this.$emit('commercialInsurance7', this.fields);
+    },
+    methods: {
+      showForm() {
+        console.log(this.formvalue);
+      }
     },
     template: /*html*/ `
 
@@ -72,7 +75,7 @@ Vue.component("commercial-insurance-7", {
         </v-row>
         
         <center>
-            <v-btn depressed @click="sendForm()" color="primary">
+            <v-btn depressed @click="showForm()" :disabled="!formvalue.isValid" color="primary">
               SEND FORM
             </v-btn>
         </center>
@@ -80,6 +83,13 @@ Vue.component("commercial-insurance-7", {
       </v-container>
 
     `,
+
+    props : {
+      formvalue: {
+        type: Object,
+        required: true
+      }
+    }
 
 });
    
