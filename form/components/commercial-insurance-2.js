@@ -5,20 +5,20 @@ Vue.component("commercial-insurance-2", {
         
         fields: [
 
-          { label: 'Select A or B', type:'select', md: 12 , sm: 6, value: null },
-          { label: 'Insured is:', type:'radio', md: 9 , sm: 6, value: null },
-          { label: 'Last', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'First', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Middle Initial', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Legal Sex', md: 3 , sm: 6, type: 'select', value: null },
-          { label: 'Date of Birth', type: 'date', md: 3,  sm: 6, menu: false, value: null },
-          { label: 'Street Address', type:'text', md: 6 , sm: 6, value: null },
-          { label: 'Apt#', type:'text', md: 3 , sm: 6, value: null },
-          { label: 'City', type:'text', md: 3 , sm: 6, value: null },
-          { label: 'State', type:'text', md: 3 , sm: 6, value: null },
-          { label: 'Zip Code', type:'number', md: 3 , sm: 6, value: null },
-          { label: 'Phone Place', type: 'select', md: 3, sm: 6, value: null},
-          { label: 'Phone #', type:'number', md: 3 , sm: 6, place: null, value: null },
+          { label: 'Select A or B', type:'select', md: 12 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Insured is:', type:'radio', md: 9 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Last', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'First', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Middle Initial', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Legal Sex', md: 3 , sm: 6, type: 'select', value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Date of Birth', type: 'date', md: 3,  sm: 6, menu: false, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Street Address', type:'text', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Apt#', type:'text', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'City', type:'text', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'State', type:'text', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Zip Code', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Phone Place', type: 'select', md: 3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Phone #', type:'number', md: 3 , sm: 6, place: null, value: null, rule: [v => !!v || 'Field is required']  },
         
         ],
         filingInsurance: [
@@ -76,6 +76,8 @@ Vue.component("commercial-insurance-2", {
 
                 <v-select
                     :items="filingInsurance" :label="field.label"
+                    :rules="field.rule"
+                    required
                     outlined  v-model="field.value"
                 > </v-select>
 
@@ -103,6 +105,8 @@ Vue.component("commercial-insurance-2", {
                   <v-text-field
                     outlined
                     :label="field.label"
+                    :rules="field.rule"
+                    required
                     v-model="field.value"
                   ></v-text-field>
                   
@@ -129,6 +133,8 @@ Vue.component("commercial-insurance-2", {
                         prepend-inner-icon="mdi-calendar"
                         v-model="field.value"
                         :label="field.label"
+                        :rules="field.rule"
+                        required
                         readonly
                         v-bind="attrs"
                         v-on="on"
@@ -153,6 +159,8 @@ Vue.component("commercial-insurance-2", {
                     type="number"
                     outlined
                     :label="field.label"
+                    :rules="field.rule"
+                    required
                     v-model="field.value"
                   ></v-text-field>
                   
@@ -163,6 +171,8 @@ Vue.component("commercial-insurance-2", {
 
                   <v-select
                       :items="placePhone" :label="field.label"
+                      :rules="field.rule"
+                      required
                       outlined  v-model="field.value"
                       @change="selectedValue($event, index)"
                   > </v-select>

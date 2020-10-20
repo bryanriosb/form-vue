@@ -10,7 +10,7 @@ Vue.component("commercial-insurance-7", {
                     to Body Hack Physical Therapy, LLC for all services delivered; if I am
                     paid directly I will promptly pay Body HackPhysical Therapy, LLC all
                     monies paid to me`,
-            type:'checkbox', md: 12 , sm: 12, value: null
+            type:'checkbox', md: 12 , sm: 12, value: null, rule: [v => !!v || 'Field is required']  
           },
           { 
             label: 'Guarantee of Payment',
@@ -18,17 +18,18 @@ Vue.component("commercial-insurance-7", {
                     such as co-insurance and deductibles are due and payable at the time of service
                     or statement receipt. I guarantee I will pay the amount deemed ‘my responsibility’
                     by my insurer by the statement due date.`,
-            type:'checkbox', md: 12 , sm: 12, value: null
+            type:'checkbox', md: 12 , sm: 12, value: null, rule: [v => !!v || 'Field is required']  
           },
           { 
             label: 'Certification of Information',
             content: `I certify that the information I have provided Body Hack Physical Therapy, LLC for
                    payment including, but not limited to, related accidents, illnesses or other insurers
                    is accurate and truthful.`,
-            type:'checkbox', md: 12 , sm: 12, value: null
+            type:'checkbox', md: 12 , sm: 12, value: null, rule: [v => !!v || 'Field is required']  
           }
                
-        ]
+        ],
+        form: null
 
       };
     },
@@ -59,15 +60,23 @@ Vue.component("commercial-insurance-7", {
 
              <!-- Checkbox -->
              <v-card-text class="check-field"  v-if="field.type === 'checkbox'">
-                  <v-checkbox class="check-container2" v-model="field.value"
-                      :label="field.content"
+                  <v-checkbox class="check-container2" v-model="field.value" 
+                    :label="field.content"
+                    :rules="field.rule"
+                    required
                   ></v-checkbox>
               </v-card-text>
             
           </v-col>
 
         </v-row>
-
+        
+        <center>
+            <v-btn depressed @click="sendForm()" color="primary">
+              SEND FORM
+            </v-btn>
+        </center>
+        
       </v-container>
 
     `,

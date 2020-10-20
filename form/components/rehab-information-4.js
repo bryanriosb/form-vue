@@ -5,14 +5,14 @@ Vue.component("rehab-information-4", {
 
         fields: [
             
-            { label: 'Is your pain?', md: 6 , sm: 6, type: 'select', value: null },
-            { label: 'Other', md: 6 , sm: 6, type: 'text', disabled: true, value: null},
-            { label: 'What makes your pain/problem better?', md: 6 , sm: 6, type: 'text', value: null },
-            { label: 'Worse?', md: 6 , sm: 6, type: 'text', value: null },
-            { label: 'Is there pain at night?', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'What position helps you to sleep?', md: 6 , sm: 6, type: 'text', value: null },
-            { label: 'Have you received therapy for this condition?', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'If yes , When?', md: 6 , sm: 6, type: 'text', disabled: true, value: null },
+            { label: 'Is your pain?', md: 6 , sm: 6, type: 'select', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'Other', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required']},
+            { label: 'What makes your pain/problem better?', md: 6 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'Worse?', md: 6 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'Is there pain at night?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'What position helps you to sleep?', md: 6 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'Have you received therapy for this condition?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'If yes , When?', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required'] },
 
         ],
         select: [
@@ -66,6 +66,8 @@ Vue.component("rehab-information-4", {
                             :items="select" :label="field.label"s
                             outlined  v-model="field.value"
                             @change="selectedValue($event, index)"
+                            :rules="field.rule"
+                            required
                         > </v-select>
 
                     </v-card-text>
@@ -87,6 +89,8 @@ Vue.component("rehab-information-4", {
                             outlined
                             :label="field.label"
                             v-model="field.value"
+                            :rules="field.rule"
+                            required
                         ></v-text-field>
                         
                     </v-card-text>    
@@ -104,17 +108,11 @@ Vue.component("rehab-information-4", {
                         </v-list-item-action>
                 
                     </v-list-item>        
-               
-                
-               
-           
 
                 </v-col>
             
             </v-row>
 
-            
-          
         </v-container>
 
     `,

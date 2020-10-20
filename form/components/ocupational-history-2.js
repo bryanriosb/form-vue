@@ -5,14 +5,14 @@ Vue.component("ocupational-history-2", {
 
         fields: [
         
-            { label: 'What activities in your daily life or work duties have been most affected by your problem?', md: 12 , sm: 6, type: 'text-area', value: null },
-            { label: 'What are your goals to be achieved by the end of therapy?', md: 12 , sm: 6, type: 'text-area', value: null },
-            { label: 'Are you exercising at home?', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'If yes, what type ?', md: 6 , sm: 6, type: 'text', disabled: true, value: null },
-            { label: 'Are you using heat or cold?', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'If yes, what type ?', md: 6 , sm: 6, type: 'text', disabled: true, value: null },
-            { label: 'Are you wearing a sling or brace?', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'If yes, what type ?', md: 6 , sm: 6, type: 'text', disabled: true, value: null }
+            { label: 'What activities in your daily life or work duties have been most affected by your problem?', md: 12 , sm: 6, type: 'text-area', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'What are your goals to be achieved by the end of therapy?', md: 12 , sm: 6, type: 'text-area', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'Are you exercising at home?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'If yes, what type ?', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'Are you using heat or cold?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'If yes, what type ?', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'Are you wearing a sling or brace?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'If yes, what type ?', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required']  }
         ]
               
       };
@@ -56,6 +56,8 @@ Vue.component("ocupational-history-2", {
                             outlined
                             name="input-7-4"
                             :label="field.label"
+                            :rules="field.rule"
+                            required
                             v-model="field.value"
                         ></v-textarea>
                         
@@ -86,6 +88,8 @@ Vue.component("ocupational-history-2", {
                             :disabled="field.disabled"
                             outlined
                             :label="field.label"
+                            :rules="field.rule"
+                            required
                             v-model="field.value"
                         ></v-text-field>
                         
@@ -95,8 +99,6 @@ Vue.component("ocupational-history-2", {
             
             </v-row>
 
-            
-          
         </v-container>
 
     `,

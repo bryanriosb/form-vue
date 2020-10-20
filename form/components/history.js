@@ -1,3 +1,5 @@
+
+
 Vue.component("medical-histoy", {
 
     data() {
@@ -5,16 +7,16 @@ Vue.component("medical-histoy", {
         
         fields: [
 
-          { label: 'Name', type:'text', md: 6 , sm: 6, value: null },
-          { label: 'Date', type: 'date', md: 3, sm: 6, menu: false, value: moment().format("YYYY-MM-DD") },
-          { label: 'Birthday', type: 'date', md: 3 , sm: 6, menu: false, value: null },
-          { label: 'Age', type: 'number', md: 2,  sm: 6, alue: null },
-          { label: 'Do you have a prescription?', md: 5 , sm: 6, type: 'radio', value: null },
-          { label: 'Referring Physician', md: 8 , sm: 6, type: 'text', value: null },
-          { label: 'Phone', type: 'number', md: 4,  sm: 6, alue: null },
-          { label: 'Address', type: 'text', md: 12,  sm: 6, alue: null },
-          { label: 'Chief Complaint/Injury', md: 9 , sm: 6, type: 'text', value: null },
-          { label: 'Date of Injury', type: 'date', md: 3,  sm: 6, enu: false, value: null }
+          { label: 'Name', type:'text', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Date', type: 'date', md: 3, sm: 6, menu: false, value: moment().format("YYYY-MM-DD"), rule: [v => !!v || 'Field is required'] },
+          { label: 'Birthday', type: 'date', md: 3 , sm: 6, menu: false, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Age', type: 'number', md: 2,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Do you have a prescription?', md: 5 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Referring Physician', md: 8 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Phone', type: 'number', md: 4,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Address', type: 'text', md: 12,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Chief Complaint/Injury', md: 9 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Date of Injury', type: 'date', md: 3,  sm: 6, enu: false, value: null, rule: [v => !!v || 'Field is required'] }
 
         ],
       
@@ -49,6 +51,8 @@ Vue.component("medical-histoy", {
                 outlined
                 :label="field.label"
                 v-model="field.value"
+                :rules="field.rule"
+                required
               ></v-text-field>
               
             </v-card-text>
@@ -74,6 +78,8 @@ Vue.component("medical-histoy", {
                     prepend-inner-icon="mdi-calendar"
                     v-model="field.value"
                     :label="field.label"
+                    :rules="field.rule"
+                    required
                     readonly
                     v-bind="attrs"
                     v-on="on"
@@ -99,6 +105,7 @@ Vue.component("medical-histoy", {
                 transition="scale-transition"
                 offset-y
                 min-width="290px"
+  
               >
 
                 <template v-slot:activator="{ on, attrs }">
@@ -107,6 +114,8 @@ Vue.component("medical-histoy", {
                     outlined
                     prepend-inner-icon="mdi-calendar"
                     v-model="field.value"
+                    :rules="field.rule"
+                    required
                     :label="field.label"
                     readonly
                     v-bind="attrs"
@@ -133,6 +142,8 @@ Vue.component("medical-histoy", {
                 outlined
                 :label="field.label"
                 v-model="field.value"
+                :rules="field.rule"
+                required
               ></v-text-field>
               
             </v-card-text>
@@ -154,9 +165,7 @@ Vue.component("medical-histoy", {
           </v-col>
 
         </v-row>
-        <!-- <v-btn depressed @click="calculateAge()" color="primary">
-          Primary
-        </v-btn> -->
+
       </v-container>
 
     `,

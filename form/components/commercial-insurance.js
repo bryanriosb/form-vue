@@ -5,22 +5,22 @@ Vue.component("commercial-insurance", {
         
         fields: [
 
-          { label: 'Last', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'First', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Middle Initial', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Street Address', type:'text', md: 6 , sm: 6, value: null },
-          { label: 'Apt#', type:'text', md: 2 , sm: 6, value: null },
-          { label: 'City', type:'text', md: 2 , sm: 6, value: null },
-          { label: 'State', type:'text', md: 2 , sm: 6, value: null },
-          { label: 'Zip Code', type:'number', md: 2 , sm: 6, value: null },
-          { label: 'Phone Place 1', type: 'select', md: 2, sm: 6, value: null},
-          { label: 'Phone 1 #', type:'number', md: 3 , sm: 6, place: null, value: null },
-          { label: 'Phone Place 2', type: 'select', md: 2, sm: 6, value: null},
-          { label: 'Phone 2 #', type:'number', md: 3 , sm: 6, place: null, value: null },
-          { label: 'Email address', type: 'text', md: 6,  sm: 6, value: null },
-          { label: 'Date of Birth', type: 'date', md: 3,  sm: 6, menu: false, value: null },
-          { label: 'Legal Sex', md: 3 , sm: 6, type: 'select', value: null },
-          { label: 'How would you like to receive appointment reminders?', type: 'select', md: 12,  sm: 6, alue: null }
+          { label: 'Last', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'First', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Middle Initial', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Street Address', type:'text', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Apt#', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'City', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'State', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Zip Code', type:'number', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Phone Place 1', type: 'select', md: 2, sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Phone 1 #', type:'number', md: 3 , sm: 6, place: null, rule: [v => !!v || 'Field is required']  , value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Phone Place 2', type: 'select', md: 2, sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Phone 2 #', type:'number', md: 3 , sm: 6, place: null, rule: [v => !!v || 'Field is required']  , value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Email address', type: 'text', md: 6,  sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Date of Birth', type: 'date', md: 3,  sm: 6, menu: false, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Legal Sex', md: 3 , sm: 6, type: 'select', value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'How would you like to receive appointment reminders?', type: 'select', md: 12,  sm: 6, alue: null, rule: [v => !!v || 'Field is required']   }
 
         ],
         placePhone: [
@@ -80,6 +80,8 @@ Vue.component("commercial-insurance", {
               <v-text-field
                 outlined
                 :label="field.label"
+                :rules="field.rule"
+                required
                 v-model="field.value"
               ></v-text-field>
               
@@ -93,6 +95,8 @@ Vue.component("commercial-insurance", {
                 type="number"
                 outlined
                 :label="field.label"
+                :rules="field.rule"
+                required
                 v-model="field.value"
               ></v-text-field>
               
@@ -104,17 +108,23 @@ Vue.component("commercial-insurance", {
                 <v-select v-if="index === 8 || index === 10"
                     :items="placePhone" :label="field.label"
                     outlined  v-model="field.value"
+                    :rules="field.rule"
+                    required
                     @change="selectedValue($event, index)"
                 > </v-select>
 
                 <v-select v-if="index === 14"
                     :items="legalSex" :label="field.label"
                     outlined  v-model="field.value"
+                    :rules="field.rule"
+                    required
                 > </v-select>
 
                 <v-select v-if="index === 15"
                     :items="appointmentRemainders" :label="field.label"
                     outlined  v-model="field.value"
+                    :rules="field.rule"
+                    required
                 > </v-select>
 
 
@@ -141,6 +151,8 @@ Vue.component("commercial-insurance", {
                    prepend-inner-icon="mdi-calendar"
                    v-model="field.value"
                    :label="field.label"
+                   :rules="field.rule"
+                   required
                    readonly
                    v-bind="attrs"
                    v-on="on"

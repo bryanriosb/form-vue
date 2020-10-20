@@ -6,19 +6,19 @@ Vue.component("commercial-insurance-6", {
         fields: [
 
           { label: 'Primary Insurance Company:', type:'subtitle',  md: 12 , sm: 12, },
-          { label: 'Ins. Co. Name:', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Insured’s Name:', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Ins. Ph #', type:'number', md:4, sm: 6, value: null },
-          { label: 'Patient ID #:', type:'number', md: 4, sm: 6, value: null },
-          { label: 'Group. #:', type:'number', md: 4, sm: 6, value: null },
-          { label: 'Policy/Plan #:', type:'number', md: 4, sm: 6, value: null },
+          { label: 'Ins. Co. Name:', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Insured’s Name:', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Ins. Ph #', type:'number', md:4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Patient ID #:', type:'number', md: 4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Group. #:', type:'number', md: 4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Policy/Plan #:', type:'number', md: 4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Secondary  Insurance Company:', type:'subtitle',  md: 12 , sm: 12, },
-          { label: 'Ins. Co. Name 2:', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Insured’s Name 2:', type:'text', md: 4 , sm: 6, value: null },
-          { label: 'Ins. Ph # 2', type:'number', md:4, sm: 6, value: null },
-          { label: 'Patient ID # 2:', type:'number', md: 4, sm: 6, value: null },
-          { label: 'Group. # 2:', type:'number', md: 4, sm: 6, value: null },
-          { label: 'Policy/Plan # 2:', type:'number', md: 4, sm: 6, value: null }
+          { label: 'Ins. Co. Name 2:', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Insured’s Name 2:', type:'text', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Ins. Ph # 2', type:'number', md:4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Patient ID # 2:', type:'number', md: 4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Group. # 2:', type:'number', md: 4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Policy/Plan # 2:', type:'number', md: 4, sm: 6, value: null, rule: [v => !!v || 'Field is required'] }
          
                        
         ]
@@ -48,6 +48,8 @@ Vue.component("commercial-insurance-6", {
               <v-text-field
                 outlined
                 :label="field.label"
+                :rules="field.rule"
+                required
                 v-model="field.value"
               ></v-text-field>
               
@@ -60,6 +62,8 @@ Vue.component("commercial-insurance-6", {
                 type="number"
                 outlined
                 :label="field.label"
+                :rules="field.rule"
+                required
                 v-model="field.value"
               ></v-text-field>
               

@@ -5,13 +5,13 @@ Vue.component("commercial-insurance-4", {
         
         fields: [
 
-          { label: 'Would you like an e-mail receipt with each transaction?', type:'radio', md: 6 , sm: 6, value: null },
-          { label: 'Name on Card:', type:'text', md: 6 , sm: 6, value: null },
-          { label: 'Credit card type', type:'select', md: 3 , sm: 6, value: null },
-          { label: 'Credit card number', type:'number', md: 3 , sm: 6, value: null },
-          { label: 'Expidation date', type:'date', md: 3 , sm: 6, value: null },
-          { label: 'Security code', type:'number', md: 3 , sm: 6, value: null },
-          { label: 'Billing zip code', type:'number', md: 3 , sm: 6, value: null }
+          { label: 'Would you like an e-mail receipt with each transaction?', type:'radio', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Name on Card:', type:'text', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Credit card type', type:'select', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Credit card number', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Expidation date', type:'date', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Security code', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Billing zip code', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] }
                        
         ],
         cards: [
@@ -73,6 +73,8 @@ Vue.component("commercial-insurance-4", {
               <v-text-field
                 outlined
                 :label="field.label"
+                :rules="field.rule"
+                required
                 v-model="field.value"
               ></v-text-field>
               
@@ -83,6 +85,8 @@ Vue.component("commercial-insurance-4", {
 
                 <v-select
                     :items="cards" :label="field.label"
+                    :rules="field.rule"
+                    required
                     outlined  v-model="field.value"
                 > </v-select>
 
@@ -96,6 +100,8 @@ Vue.component("commercial-insurance-4", {
                 type="number"
                 outlined
                 :label="field.label"
+                :rules="field.rule"
+                required
                 v-model="field.value"
               ></v-text-field>
               
@@ -122,6 +128,8 @@ Vue.component("commercial-insurance-4", {
                     prepend-inner-icon="mdi-calendar"
                     v-model="field.value"
                     :label="field.label"
+                    :rules="field.rule"
+                    required
                     readonly
                     v-bind="attrs"
                     v-on="on"

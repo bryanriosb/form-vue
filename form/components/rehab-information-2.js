@@ -5,10 +5,10 @@ Vue.component("rehab-information-2", {
 
         fields: [
             
-            { label: 'Please list any diagnostic test you have had for this condition', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'Please list any medication that are you taking', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'What are your current symptoms?', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'How the injury or problem occurred?', md: 12 , sm: 6, type: 'text', value: null },
+            { label: 'Please list any diagnostic test you have had for this condition', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'Please list any medication that are you taking', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'What are your current symptoms?', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'How the injury or problem occurred?', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
           
         ]
               
@@ -37,6 +37,8 @@ Vue.component("rehab-information-2", {
                 <v-text-field
                   outlined
                   :label="field.label"
+                  :rules="field.rule"
+                  required
                   v-model="field.value"
                 ></v-text-field> 
            </v-card-text>

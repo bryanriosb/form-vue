@@ -5,12 +5,12 @@ Vue.component("ocupational-history", {
 
         fields: [
             
-            { label: 'Are you currently working', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'If no, How many days of work have you missed?', md: 6 , sm: 6, type: 'text', disabled: true, value: null},
-            { label: 'Are you job duties', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'How many hours a day do you work?', md: 6 , sm: 6, type: 'number', value: null },
-            { label: 'Who is your employer?', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'What type of work do you do?', md: 12 , sm: 6, type: 'text', value: null }
+            { label: 'Are you currently working', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'If no, How many days of work have you missed?', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'Are you job duties', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'How many hours a day do you work?', md: 6 , sm: 6, type: 'number', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'Who is your employer?', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'What type of work do you do?', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  }
           
           
         ]
@@ -88,6 +88,8 @@ Vue.component("ocupational-history", {
                             :disabled="field.disabled"
                             outlined
                             :label="field.label"
+                            :rules="field.rule"
+                            required
                             v-model="field.value"
                         ></v-text-field>
                         
@@ -100,6 +102,8 @@ Vue.component("ocupational-history", {
                         type="number"
                         outlined
                         :label="field.label"
+                        :rules="field.rule"
+                        required
                         v-model="field.value"
                         ></v-text-field>
                         
@@ -109,8 +113,6 @@ Vue.component("ocupational-history", {
             
             </v-row>
 
-            
-          
         </v-container>
 
     `,

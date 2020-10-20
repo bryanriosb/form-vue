@@ -5,15 +5,15 @@ Vue.component("commercial-insurance-3", {
         
         fields: [
 
-          { label: 'Familiy or friend', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'Social Media ( FB, IG or Twitter)', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'Walk by', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'BHPT website', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'I’m a returning patient', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'Google maps/reviews', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'Doctor', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'General online search', type:'checkbox', md: 6 , sm: 6, value: null },
-          { label: 'Other', type:'text', md: 12 , sm: 6, value: null },
+          { label: 'Familiy or friend', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'Social Media ( FB, IG or Twitter)', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'Walk by', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'BHPT website', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'I’m a returning patient', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'Google maps/reviews', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'Doctor', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'General online search', type:'checkbox', md: 6 , sm: 6, value: null},
+          { label: 'Other', type:'text', md: 12 , sm: 6, value: null},
           
       
         

@@ -5,16 +5,16 @@ Vue.component("rehab-information", {
 
         fields: [
 
-            { id: 1, label: 'Have you had surgery for your condition?', md: 9 , sm: 6, type: 'radio', value: 'No' },
-            { id: 2, label: 'If yes, Date condition', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
-            { id: 3, label: 'Is a condition related with Car accident?', md: 9 , sm: 6, type: 'radio', value: 'No' },
-            { id: 4, label: 'If yes, Date Car accident', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
-            { id: 5, label: 'Is a condition related with Sport practice?', md: 9 , sm: 6, type: 'radio', value: 'No' },
-            { id: 6, label: 'If yes, Date Sport practice', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
-            { id: 7, label: 'Is a condition related with work accident?', md: 9 , sm: 6, type: 'radio', value: 'No' },
-            { id: 8, label: 'If yes, Date Work accident', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
-            { id: 9, label: 'Have you had any injections for your condition?', md: 9 , sm: 6, type: 'radio', value: 'No' },
-            { id: 10, label: 'If yes, Date Your condition5', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true },
+            { id: 1, label: 'Have you had surgery for your condition?', md: 9 , sm: 6, type: 'radio', value: 'No', rule: [v => !!v || 'Field is required'] },
+            { id: 2, label: 'If yes, Date condition', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true, rule: [v => !!v || 'Field is required'] },
+            { id: 3, label: 'Is a condition related with Car accident?', md: 9 , sm: 6, type: 'radio', value: 'No', rule: [v => !!v || 'Field is required'] },
+            { id: 4, label: 'If yes, Date Car accident', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true, rule: [v => !!v || 'Field is required'] },
+            { id: 5, label: 'Is a condition related with Sport practice?', md: 9 , sm: 6, type: 'radio', value: 'No', rule: [v => !!v || 'Field is required'] },
+            { id: 6, label: 'If yes, Date Sport practice', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true, rule: [v => !!v || 'Field is required'] },
+            { id: 7, label: 'Is a condition related with work accident?', md: 9 , sm: 6, type: 'radio', value: 'No', rule: [v => !!v || 'Field is required'] },
+            { id: 8, label: 'If yes, Date Work accident', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true, rule: [v => !!v || 'Field is required'] },
+            { id: 9, label: 'Have you had any injections for your condition?', md: 9 , sm: 6, type: 'radio', value: 'No', rule: [v => !!v || 'Field is required'] },
+            { id: 10, label: 'If yes, Date Your condition5', md: 3 , sm: 6, type: 'date', menu: false, value: null, disabled: true, rule: [v => !!v || 'Field is required'] },
           
         ]
               
@@ -78,6 +78,8 @@ Vue.component("rehab-information", {
                         prepend-inner-icon="mdi-calendar"
                         v-model="field.value"
                         :label="field.label"
+                        :rules="field.rule"
+                        required
                         readonly
                         v-bind="attrs"
                         v-on="on"

@@ -5,10 +5,10 @@ Vue.component("rehab-information-3", {
 
         fields: [
             
-            { label: 'AT BEST', md: 8 , sm: 10, type: 'radio', value: null },
-            { label: 'AT WORST', md: 8 , sm: 10, type: 'radio', value: null },
-            { label: 'CURRENT', md: 8 , sm: 10, type: 'radio', value: null },
-            { label: 'Where is your pain or problem located?', md: 12 , sm: 6, type: 'text', value: null }
+            { label: 'AT BEST', md: 8 , sm: 10, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'AT WORST', md: 8 , sm: 10, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'CURRENT', md: 8 , sm: 10, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'Where is your pain or problem located?', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] }
         ],
 
         icons: [
@@ -60,7 +60,10 @@ Vue.component("rehab-information-3", {
 
                         <span class="radio-rating-label">{{ field.label }}</span>
 
-                        <v-chip-group v-model="field.value"
+                        <v-chip-group 
+                            v-model="field.value"
+                            :rules="field.rule"
+                            required
                             active-class="primary--text"
                             mandatory
                         >

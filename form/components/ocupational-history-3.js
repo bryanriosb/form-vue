@@ -5,12 +5,12 @@ Vue.component("ocupational-history-3", {
 
         fields: [
             
-            { label: 'Do you smoke?', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'If yes, how much?', md: 6 , sm: 6, type: 'text', disabled: true, value: null},
-            { label: 'Are you invlove in any sport activitie?', md: 6 , sm: 6, type: 'radio', value: null },
-            { label: 'How many hours a week?', md: 6 , sm: 6, type: 'number', value: null },
-            { label: 'When are you schedule to see your doctor again?', md: 12 , sm: 6, type: 'text', value: null },
-            { label: 'Therapist comment’s ', md: 12 , sm: 6, type: 'text-area', value: null }
+            { label: 'Do you smoke?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'If yes, how much?', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required'] },
+            { label: 'Are you invlove in any sport activitie?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'How many hours a week?', md: 6 , sm: 6, type: 'number', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'When are you schedule to see your doctor again?', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'Therapist comment’s ', md: 12 , sm: 6, type: 'text-area', value: null, rule: [v => !!v || 'Field is required']  }
         ]
               
       };
@@ -63,6 +63,8 @@ Vue.component("ocupational-history-3", {
                             :disabled="field.disabled"
                             outlined
                             :label="field.label"
+                            :rules="field.rule"
+                            required
                             v-model="field.value"
                         ></v-text-field>
                         
@@ -75,6 +77,8 @@ Vue.component("ocupational-history-3", {
                         type="number"
                         outlined
                         :label="field.label"
+                        :rules="field.rule"
+                        required
                         v-model="field.value"
                         ></v-text-field>
                         
@@ -87,6 +91,8 @@ Vue.component("ocupational-history-3", {
                             outlined
                             name="input-7-4"
                             :label="field.label"
+                            :rules="field.rule"
+                            required
                             v-model="field.value"
                         ></v-textarea>
                         
