@@ -35,9 +35,7 @@ Vue.component("commercial-insurance-7", {
       this.$emit('commercialInsurance7', this.fields);
     },
     methods: {
-      showForm() {
-        console.log(this.formvalue);
-      }
+    
     },
     template: /*html*/ `
 
@@ -73,23 +71,10 @@ Vue.component("commercial-insurance-7", {
           </v-col>
 
         </v-row>
-        
-        <center>
-            <v-btn depressed @click="showForm()" :disabled="!formvalue.isValid" color="primary">
-              SEND FORM
-            </v-btn>
-        </center>
-        
+               
       </v-container>
 
     `,
-
-    props : {
-      formvalue: {
-        type: Object,
-        required: true
-      }
-    }
 
 });
    

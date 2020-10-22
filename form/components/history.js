@@ -13,7 +13,12 @@ Vue.component("medical-histoy", {
           { label: 'Age', type: 'number', md: 2,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Do you have a prescription?', md: 5 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Referring Physician', md: 8 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Phone', type: 'number', md: 4,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
+          { 
+            label: 'Phone #', type:'number', md: 4 , sm: 6, place: null, value: null,
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 10) || 'The phone must have 10 digits'
+            ]
+          },
           { label: 'Address', type: 'text', md: 12,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Chief Complaint/Injury', md: 9 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Date of Injury', type: 'date', md: 3,  sm: 6, enu: false, value: null, rule: [v => !!v || 'Field is required'] }

@@ -69,12 +69,11 @@ Vue.component("rehab-information-4", {
                             :rules="field.rule"
                             required
                         > </v-select>
-
                     </v-card-text>
 
                     <!-- Text -->
                 
-                    <v-card-text class="field" v-if="field.type === 'text'">
+                    <v-card-text class="field" v-if="field.type === 'text' && !field.disabled">
 
                         <div class="label-other-rehab"  v-if="index === 1">
                             <span class="label-up-field" v-if="!field.disabled">Please write which</span> 
@@ -96,7 +95,21 @@ Vue.component("rehab-information-4", {
                     </v-card-text>    
                     
                     <!-- Radio Buttons -->
-                    <v-list-item  v-if="field.type === 'radio'">
+                    <v-list-item  v-if="field.type === 'radio' && index === 4">
+
+                        <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
+        
+                        <v-list-item-action>
+                            <v-radio-group class="label-radio" v-model="field.value" row >
+                                <v-radio class="radio-button-3"  label="Yes"  value="Yes"></v-radio> 
+                                <v-radio class="radio-button-3" label="No" value="No" ></v-radio>
+                            </v-radio-group>
+                        </v-list-item-action>
+                
+                    </v-list-item>
+                    
+                    <!-- Radio Buttons -->
+                    <v-list-item  v-if="field.type === 'radio' && index > 4">
 
                         <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
         
@@ -107,7 +120,7 @@ Vue.component("rehab-information-4", {
                             </v-radio-group>
                         </v-list-item-action>
                 
-                    </v-list-item>        
+                    </v-list-item>      
 
                 </v-col>
             

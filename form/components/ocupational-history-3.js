@@ -8,7 +8,7 @@ Vue.component("ocupational-history-3", {
             { label: 'Do you smoke?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
             { label: 'If yes, how much?', md: 6 , sm: 6, type: 'text', disabled: true, value: null, rule: [v => !!v || 'Field is required'] },
             { label: 'Are you invlove in any sport activitie?', md: 6 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required']  },
-            { label: 'How many hours a week?', md: 6 , sm: 6, type: 'number', value: null, rule: [v => !!v || 'Field is required']  },
+            { label: 'How many hours a week?', md: 6 , sm: 6, type: 'number', disabled: true, value: null, rule: [v => !!v || 'Field is required']  },
             { label: 'When are you schedule to see your doctor again?', md: 12 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
             { label: 'Therapist comment’s ', md: 12 , sm: 6, type: 'text-area', value: null, rule: [v => !!v || 'Field is required']  }
         ]
@@ -53,7 +53,7 @@ Vue.component("ocupational-history-3", {
                     </v-list-item>        
             
                     <!-- Text -->
-                    <v-card-text class="field" v-if="field.type === 'text'">
+                    <v-card-text class="field" v-if="field.type === 'text' && !field.disabled">
 
                         <div class="label-other-rehab"  v-if="index === 1">
                             <span class="label-up-field" v-if="!field.disabled">How much?</span> 
@@ -71,11 +71,16 @@ Vue.component("ocupational-history-3", {
                     </v-card-text>
                     
                      <!-- Number -->
-                    <v-card-text class="field" v-if="field.type === 'number'">
+                    <v-card-text class="field" v-if="field.type === 'number' && !field.disabled">
+
+                        <div class="label-other-rehab"  v-if="index === 3">
+                            <span class="label-up-field" v-if="!field.disabled">How many?</span> 
+                        </div>
 
                         <v-text-field
                         type="number"
                         outlined
+                        :disabled="field.disabled"
                         :label="field.label"
                         :rules="field.rule"
                         required

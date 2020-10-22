@@ -11,7 +11,11 @@ Vue.component("commercial-insurance-4", {
           { label: 'Credit card number', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Expidation date', type:'date', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Security code', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Billing zip code', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] }
+          { label: 'Billing zip code', type:'number', md: 3 , sm: 6, value: null, 
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 4) || (v && v.length === 5) || 'The Zip Code must have 4 or 5 digits'
+            ]
+          },
                        
         ],
         cards: [

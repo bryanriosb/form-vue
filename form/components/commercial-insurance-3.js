@@ -24,18 +24,6 @@ Vue.component("commercial-insurance-3", {
     mounted() {
       this.$emit('commercialInsurance3', this.fields);
     },
-    methods: {
-
-        selectedValue( value, index ) {
-
-            if( value ) {
-                this.fields[ index + 1 ].place = value;
-            } else {
-                this.fields[ index + 1 ].place = value;
-            }
-        }
-     
-    },
     template: /*html*/ `
 
       <v-container>

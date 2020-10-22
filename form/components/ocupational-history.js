@@ -78,7 +78,7 @@ Vue.component("ocupational-history", {
                     </v-list-item>        
             
                     <!-- Text -->
-                    <v-card-text class="field" v-if="field.type === 'text'">
+                    <v-card-text class="field" v-if="field.type === 'text' && !field.disabled">
 
                         <div class="label-other-rehab"  v-if="index === 1">
                             <span class="label-up-field" v-if="!field.disabled">How many days?</span> 

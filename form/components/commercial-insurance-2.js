@@ -18,7 +18,12 @@ Vue.component("commercial-insurance-2", {
           { label: 'State', type:'text', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
           { label: 'Zip Code', type:'number', md: 3 , sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
           { label: 'Phone Place', type: 'select', md: 3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Phone #', type:'number', md: 3 , sm: 6, place: null, value: null, rule: [v => !!v || 'Field is required']  },
+          { 
+            label: 'Phone #', type:'number', md: 3 , sm: 6, place: null, value: null,
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 10) || 'The phone must have 10 digits'
+            ]
+          },
         
         ],
         filingInsurance: [
@@ -50,11 +55,8 @@ Vue.component("commercial-insurance-2", {
 
         selectedValue( value, index ) {
 
-            if( value ) {
-                this.fields[ index + 1 ].place = value;
-            } else {
-                this.fields[ index + 1 ].place = value;
-            }
+          this.fields[ index ].value = value;
+
         }
      
     },

@@ -21,8 +21,7 @@ Vue.component("main-form", {
         commerInsurance4Data: null,
         commerInsurance5Data: null,
         commerInsurance6Data: null,
-        commerInsurance7Data: null,
-        commerInsurance8Data: null
+        commerInsurance7Data: null
 
       }
       
@@ -77,10 +76,24 @@ Vue.component("main-form", {
       }
     }
   },
-  template: /*html*/ `
-    <v-card  id="main-form" height="100%" class="mx-auto" elevation="2"  outlined  max-width="1100">
+  methods: {
+    showForm() {
 
-      {{ form.isValid }}
+      const res = this.$refs.form.validate();
+
+      if(res) {
+
+        console.log('Fomulario', this.form);
+        
+      } else {
+        alert('Some fields need to be filled!');
+      }
+
+    }
+  },
+  template: /*html*/ `
+  
+    <v-card  id="main-form" height="100%" class="mx-auto" elevation="2"  outlined  max-width="1100">
 
       <div class="back-logo">
         <img class="img-bh" src="assets/img/bh.png" alt="image/png">
@@ -108,8 +121,7 @@ Vue.component("main-form", {
         v-model="form.isValid"
         lazy-validation
       >
-  
-    
+      
         <v-window v-model="step">
     
           <v-window-item :value="1">
@@ -145,7 +157,7 @@ Vue.component("main-form", {
           </v-window-item>
 
           <v-window-item :value="9">
-            <ocupational-history-3 @ocupationalHistory2="form.ocupationalHist3Data= $event"></ocupational-history-3>
+            <ocupational-history-3 @ocupationalHistory3="form.ocupationalHist3Data= $event"></ocupational-history-3>
           </v-window-item>
 
           <v-window-item :value="10">
@@ -157,7 +169,7 @@ Vue.component("main-form", {
           </v-window-item>
 
           <v-window-item :value="12">
-            <commercial-insurance-3 @commercilalnsurance3="form.commerInsurance3Data= $event"></commercial-insurance-3>
+            <commercial-insurance-3 @commercialInsurance3="form.commerInsurance3Data= $event"></commercial-insurance-3>
           </v-window-item>
 
           <v-window-item :value="13">
@@ -173,12 +185,8 @@ Vue.component("main-form", {
           </v-window-item>
 
           <v-window-item :value="16">
-            <commercial-insurance-7 :formvalue="form" @commercialInsurance7="form.commerInsurance7Data= $event"></commercial-insurance-7>
+            <commercial-insurance-7 @commercialInsurance7="form.commerInsurance7Data= $event"></commercial-insurance-7>
           </v-window-item>
-
-          <!-- <v-window-item :value="17">
-            <commercial-insurance-8 @commercialInsurance8="commerInsurance8Data= $event"></commercial-insurance-8>
-          </v-window-item> -->
 
         </v-window>
     
@@ -193,6 +201,10 @@ Vue.component("main-form", {
             Back
           </v-btn>
           <v-spacer></v-spacer>
+          <v-btn v-if="step === 16" depressed @click="showForm()" :disabled="!form.isValid" color="primary">
+            SEND FORM
+          </v-btn>
+          <v-spacer></v-spacer>
           <v-btn
             :disabled="step === 16"
             color="primary"
@@ -201,6 +213,7 @@ Vue.component("main-form", {
           >
             Next
           </v-btn>
+
         </v-card-actions>
 
       </v-form>

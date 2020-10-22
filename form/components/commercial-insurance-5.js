@@ -6,12 +6,21 @@ Vue.component("commercial-insurance-5", {
         fields: [
 
           { label: 'Employer Name:', type:'text', md: 12 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Employer Phone #', type:'number', md: 4 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Employer Phone #', type:'number', md: 4 , sm: 6, value: null,
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 10) || 'The phone must have 10 digits'
+            ]
+          },
           { label: 'Street Address', type:'text', md: 8 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Suite#', type:'number', md:3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'City', type:'text', md: 3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'State', type:'text', md:3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Zip Code', type:'number', md: 3, sm: 6, value: null, rule: [v => !!v || 'Field is required'] }
+          { label: 'Zip Code', type:'number', md: 3, sm: 6, value: null,
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 4) || (v && v.length === 5) || 'The Zip Code must have 4 or 5 digits'
+            ] 
+          }
+        
                        
         ]
 

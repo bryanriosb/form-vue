@@ -12,15 +12,35 @@ Vue.component("commercial-insurance", {
           { label: 'Apt#', type:'number', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'City', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'State', type:'text', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
-          { label: 'Zip Code', type:'number', md: 2 , sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { label: 'Zip Code', type:'number', md: 2 , sm: 6, value: null, 
+
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 4) || (v && v.length === 5) || 'The Zip Code must have 4 or 5 digits'
+            ]
+          },
           { label: 'Phone Place 1', type: 'select', md: 2, sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
-          { label: 'Phone 1 #', type:'number', md: 3 , sm: 6, place: null, rule: [v => !!v || 'Field is required']  , value: null, rule: [v => !!v || 'Field is required']   },
+          { 
+            label: 'Phone 1 #', type:'number', md: 3 , sm: 6, place: null, value: null,
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 10) || 'The phone must have 10 digits'
+            ]
+          },
           { label: 'Phone Place 2', type: 'select', md: 2, sm: 6, value: null, rule: [v => !!v || 'Field is required']  },
-          { label: 'Phone 2 #', type:'number', md: 3 , sm: 6, place: null, rule: [v => !!v || 'Field is required']  , value: null, rule: [v => !!v || 'Field is required']   },
-          { label: 'Email address', type: 'text', md: 6,  sm: 6, value: null, rule: [v => !!v || 'Field is required']   },
+          { 
+            label: 'Phone 2 #', type:'number', md: 3 , sm: 6, place: null, value: null,
+            rule: [
+              v => !!v || 'Field is required', v => (v && v.length === 10) || 'The phone must have 10 digits'
+            ]
+          },
+          { 
+            label: 'Email address', type: 'text', md: 6,  sm: 6, value: null, 
+            rule: [
+              v => !!v || 'Field is required', v => /.+@.+\..+/.test(v) || 'E-mail must be valid'
+            ] 
+          },
           { label: 'Date of Birth', type: 'date', md: 3,  sm: 6, menu: false, value: null, rule: [v => !!v || 'Field is required']   },
           { label: 'Legal Sex', md: 3 , sm: 6, type: 'select', value: null, rule: [v => !!v || 'Field is required']   },
-          { label: 'How would you like to receive appointment reminders?', type: 'select', md: 12,  sm: 6, alue: null, rule: [v => !!v || 'Field is required']   }
+          { label: 'How would you like to receive appointment reminders?', type: 'select', md: 12,  sm: 6, value: null, rule: [v => !!v || 'Field is required'] }
 
         ],
         placePhone: [

@@ -55,7 +55,7 @@ Vue.component("rehab-information", {
             </v-list-item>
 
             <!-- Date -->
-            <v-card-text class="field" v-if="field.type === 'date'" ref="date"> 
+            <v-card-text class="field" v-if="field.type === 'date' && field.disabled === false" ref="date"> 
 
                 <div class="label-other-rehab">
                     <span class="label-date" v-if="!field.disabled">Select Date</span> 
