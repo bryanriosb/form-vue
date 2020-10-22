@@ -30,9 +30,9 @@ Vue.component("rehab-information-2", {
             
             <!-- Text -->
             <v-card-text class="other" v-if="field.type === 'text'">
-                <span id="custom-label" class="grey--text">
+                <p class="grey--text custom-label">
                     {{field.label}}
-                </span>
+                </p>
 
                 <v-text-field
                   outlined
