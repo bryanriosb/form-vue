@@ -126,7 +126,11 @@
     padding-right: 8%;
 }
 
-
+.autho-container {
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
 
 @media only screen and (min-width: 958px) {
     .custom-label {

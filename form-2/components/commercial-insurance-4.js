@@ -63,7 +63,7 @@ Vue.component("commercial-insurance-4", {
               <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
 
               <v-list-item-action>
-                  <v-radio-group class="label-radio"  v-model="field.value" row >
+                  <v-radio-group class="label-radio"  v-model="field.value" row  :rules="field.rule" >
                       <v-radio  label="Yes"  value="Yes"></v-radio> 
                       <v-radio label="No" value="No" ></v-radio>
                   </v-radio-group>

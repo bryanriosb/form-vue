@@ -69,7 +69,7 @@ Vue.component("ocupational-history-2", {
                         <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
         
                         <v-list-item-action>
-                            <v-radio-group class="label-radio" @change="radioValue2($event, index)" v-model="field.value" row >
+                            <v-radio-group class="label-radio" @change="radioValue2($event, index)" v-model="field.value" row :rules="field.rule" >
                                 <v-radio class="radio-button-3"  label="Yes"  value="Yes"></v-radio> 
                                 <v-radio class="radio-button-3" label="No" value="No" ></v-radio>
                             </v-radio-group>

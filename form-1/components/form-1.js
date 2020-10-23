@@ -1,4 +1,4 @@
-Vue.component("main-form", {
+Vue.component("form-1", {
   data() {
     return {
   
@@ -15,14 +15,7 @@ Vue.component("main-form", {
         ocupationalHistData: null,
         ocupationalHist2Data: null,
         ocupationalHist3Data: null,
-        commerInsuranceData: null,
-        commerInsurance2Data: null,
-        commerInsurance3Data: null,
-        commerInsurance4Data: null,
-        commerInsurance5Data: null,
-        commerInsurance6Data: null,
-        commerInsurance7Data: null
-
+        authorizationAcknowData: null
       }
       
     };
@@ -48,31 +41,9 @@ Vue.component("main-form", {
         case 8:
           return "OCUPATIONAL HISTORY";
         case 9:
-          return "OCUPATIONAL HISTORY";
-
-        case 10:
-          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
-
-        case 11:
-          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
-
-        case 12:
-          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
-
-        case 13:
-          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
-
-        case 14:
-          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
-
-        case 15:
-          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
-
-        case 16:
-        return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
-    
+          return "OCUPATIONAL HISTORY";    
         default:
-          return "COMMERCIAL INSURANCE - PATIENT & PAYOR INFORMATION FORM";
+          return "AUTHORIZATIONS & ACKNOWLEDGEMENTS";
       }
     }
   },
@@ -161,31 +132,7 @@ Vue.component("main-form", {
           </v-window-item>
 
           <v-window-item :value="10">
-            <commercial-insurance @commercilaInsurance="form.commerInsuranceData= $event"></commercial-insurance>
-          </v-window-item>
-
-          <v-window-item :value="11">
-            <commercial-insurance-2 @commercialInsurance2="form.commerInsurance2Data= $event"></commercial-insurance-2>
-          </v-window-item>
-
-          <v-window-item :value="12">
-            <commercial-insurance-3 @commercialInsurance3="form.commerInsurance3Data= $event"></commercial-insurance-3>
-          </v-window-item>
-
-          <v-window-item :value="13">
-            <commercial-insurance-4 @commercialInsurance4="form.commerInsurance4Data= $event"></commercial-insurance-4>
-          </v-window-item>
-
-          <v-window-item :value="14">
-            <commercial-insurance-5 @commercialInsurance5="form.commerInsurance5Data= $event"></commercial-insurance-5>
-          </v-window-item>
-
-          <v-window-item :value="15">
-            <commercial-insurance-6 @commercialInsurance6="form.commerInsurance6Data= $event"></commercial-insurance-6>
-          </v-window-item>
-
-          <v-window-item :value="16">
-            <commercial-insurance-7 @commercialInsurance7="form.commerInsurance7Data= $event"></commercial-insurance-7>
+            <autho-acknow @authorizationAcknow="form.authorizationAcknowData= $event"></autho-acknow>
           </v-window-item>
 
         </v-window>
@@ -201,12 +148,12 @@ Vue.component("main-form", {
             Back
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn v-if="step === 16" depressed @click="showForm()" :disabled="!form.isValid" color="primary">
+          <v-btn v-if="step === 10" depressed @click="showForm()" :disabled="!form.isValid" color="primary">
             SEND FORM
           </v-btn>
           <v-spacer></v-spacer>
           <v-btn
-            :disabled="step === 16"
+            :disabled="step === 10"
             color="primary"
             depressed
             @click="step++"
@@ -240,7 +187,7 @@ new Vue({
       <v-app>
           <v-main>       
               <v-container>
-                  <main-form></main-form>
+                  <form-1></form-1>
               </v-container>
           </v-main>
       </v-app>

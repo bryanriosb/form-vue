@@ -53,14 +53,14 @@ Vue.component("rehab-information-3", {
                 >
                     <v-sheet
                     elevation="3"
-                    class="py-4 px-1"
+                    class="chips py-4"
                     >   
 
                     <v-card-text>
 
                         <span class="radio-rating-label">{{ field.label }}</span>
 
-                        <v-chip-group 
+                        <v-chip-group
                             v-model="field.value"
                             :rules="field.rule"
                             required

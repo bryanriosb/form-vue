@@ -26,7 +26,10 @@ Vue.component("commercial-insurance-7", {
                    payment including, but not limited to, related accidents, illnesses or other insurers
                    is accurate and truthful.`,
             type:'checkbox', md: 12 , sm: 12, value: null, rule: [v => !!v || 'Field is required']  
-          }
+          },
+          { label: 'I attest, to the best of my knowledge, the above information is accurate and true.', type: 'description'},
+          { label: 'Patient or Legal Representative’s full name', md: 9 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required']  },
+          { label: 'Date', md: 3 , sm: 6, type: 'date', value: moment().format("YYYY-MM-DD"), rule: [v => !!v || 'Field is required'] }
                
         ]
       };
@@ -59,14 +62,72 @@ Vue.component("commercial-insurance-7", {
               </v-card-text>
             </center>
 
-             <!-- Checkbox -->
-             <v-card-text class="check-field"  v-if="field.type === 'checkbox'">
-                  <v-checkbox class="check-container2" v-model="field.value" 
-                    :label="field.content"
+            <!-- Checkbox -->
+            <v-card-text class="check-field"  v-if="field.type === 'checkbox'">
+                <v-checkbox class="check-container2" v-model="field.value" 
+                  :label="field.content"
+                  :rules="field.rule"
+                  required
+                ></v-checkbox>
+            </v-card-text>
+
+            <v-card-text class="field" v-if="field.type === 'description'">
+              <p class="text-descript grey--text">
+                  8. {{ field.label }}
+              </p>
+            </v-card-text>
+
+            <!-- Text -->
+            <v-card-text class="field" v-if="field.type === 'text'">
+
+                <v-text-field
+                    outlined
+                    :label="field.label"
                     :rules="field.rule"
                     required
-                  ></v-checkbox>
-              </v-card-text>
+                    v-model="field.value"
+                ></v-text-field>
+                
+            </v-card-text>
+
+            <!-- Date -->
+            <v-card-text class="field" v-if="field.type === 'date'"> 
+
+                <v-menu 
+                
+                v-model="field.menu"
+                :close-on-content-click="false"
+                :nudge-right="40"
+                transition="scale-transition"
+                offset-y
+                min-width="290px"
+                >
+
+                <template v-slot:activator="{ on, attrs }">
+
+                    <v-text-field no-gutters
+                    :disabled="field.label === 'Date'"
+                    outlined
+                    prepend-inner-icon="mdi-calendar"
+                    v-model="field.value"
+                    :label="field.label"
+                    :rules="field.rule"
+                    required
+                    readonly
+                    v-bind="attrs"
+                    v-on="on"
+                    ></v-text-field>
+
+                </template>
+
+                <v-date-picker
+                    v-model="field.value"
+                    @input="field.menu = false"
+                ></v-date-picker>
+
+                </v-menu>
+
+            </v-card-text>  
             
           </v-col>
 

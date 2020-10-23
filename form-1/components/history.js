@@ -10,7 +10,7 @@ Vue.component("medical-histoy", {
           { label: 'Name', type:'text', md: 6 , sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Date', type: 'date', md: 3, sm: 6, menu: false, value: moment().format("YYYY-MM-DD"), rule: [v => !!v || 'Field is required'] },
           { label: 'Birthday', type: 'date', md: 3 , sm: 6, menu: false, value: null, rule: [v => !!v || 'Field is required'] },
-          { label: 'Age', type: 'number', md: 2,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Age', type: 'number', md: 2,  sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Do you have a prescription?', md: 5 , sm: 6, type: 'radio', value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Referring Physician', md: 8 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
           { 
@@ -19,7 +19,7 @@ Vue.component("medical-histoy", {
               v => !!v || 'Field is required', v => (v && v.length === 10) || 'The phone must have 10 digits'
             ]
           },
-          { label: 'Address', type: 'text', md: 12,  sm: 6, alue: null, rule: [v => !!v || 'Field is required'] },
+          { label: 'Address', type: 'text', md: 12,  sm: 6, value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Chief Complaint/Injury', md: 9 , sm: 6, type: 'text', value: null, rule: [v => !!v || 'Field is required'] },
           { label: 'Date of Injury', type: 'date', md: 3,  sm: 6, enu: false, value: null, rule: [v => !!v || 'Field is required'] }
 
@@ -159,7 +159,7 @@ Vue.component("medical-histoy", {
                 <v-list-item-content class="text-left">{{ field.label }}</v-list-item-content>
 
                 <v-list-item-action>
-                    <v-radio-group class="label-radio" v-model="field.value" row >
+                    <v-radio-group class="label-radio" v-model="field.value" row :rules="field.rule" >
                         <v-radio class="radio-button-3"  label="Yes"  value="Yes"></v-radio> 
                         <v-radio class="radio-button-3" label="No" value="No" ></v-radio>
                     </v-radio-group>
